@@ -26,6 +26,7 @@
 		0A85E926165CA2FB00983D56 /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A85E91F165CA2FB00983D56 /* first@2x.png */; };
 		0A85E927165CA2FB00983D56 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A85E920165CA2FB00983D56 /* second.png */; };
 		0A85E928165CA2FB00983D56 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A85E921165CA2FB00983D56 /* second@2x.png */; };
+		0AAD582F165EE52E009E250F /* FCNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAD582E165EE52E009E250F /* FCNetwork.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,8 @@
 		0A85E929165CA46900983D56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = misc/Info.plist; sourceTree = "<group>"; };
 		0A85E92A165CA46900983D56 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = main.m; path = misc/main.m; sourceTree = "<group>"; };
 		0A85E92B165CA46900983D56 /* Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Prefix.pch; path = misc/Prefix.pch; sourceTree = "<group>"; };
+		0AAD582D165EE52E009E250F /* FCNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FCNetwork.h; path = src/model/FCNetwork.h; sourceTree = "<group>"; };
+		0AAD582E165EE52E009E250F /* FCNetwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FCNetwork.m; path = src/model/FCNetwork.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +88,8 @@
 		0A691E56165CA51300839686 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				0AAD582D165EE52E009E250F /* FCNetwork.h */,
+				0AAD582E165EE52E009E250F /* FCNetwork.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -260,6 +265,7 @@
 				0A691E55165CA4F700839686 /* FCSecondViewController.m in Sources */,
 				0A691E5A165CA55300839686 /* FCAppDelegate.m in Sources */,
 				0A09CD3B165CA6A0006DBF25 /* main.m in Sources */,
+				0AAD582F165EE52E009E250F /* FCNetwork.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

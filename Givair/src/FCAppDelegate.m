@@ -8,14 +8,20 @@
 
 #import "FCAppDelegate.h"
 
+#import "FCNetwork.h"
+
 #import "FCFirstViewController.h"
 
 #import "FCSecondViewController.h"
 
 @implementation FCAppDelegate
 
+@synthesize network = mNetwork;
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    mNetwork = [[FCNetwork alloc] init];
+
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     UIViewController *viewController1 = [[FCFirstViewController alloc] initWithNibName:@"FCFirstViewController" bundle:nil];
