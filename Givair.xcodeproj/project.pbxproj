@@ -29,6 +29,7 @@
 		0AAD57FD165ED301009E250F /* tabBarPeople.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AAD57FB165ED301009E250F /* tabBarPeople.png */; };
 		0AAD57FE165ED301009E250F /* tabBarPeople@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AAD57FC165ED301009E250F /* tabBarPeople@2x.png */; };
 		0AAD5803165ED5BA009E250F /* FCCatalogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAD5802165ED5BA009E250F /* FCCatalogViewController.m */; };
+		0AAD5817165EDFF9009E250F /* FCImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAD5816165EDFF9009E250F /* FCImage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +62,8 @@
 		0AAD57FC165ED301009E250F /* tabBarPeople@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tabBarPeople@2x.png"; path = "img/tabBarPeople@2x.png"; sourceTree = "<group>"; };
 		0AAD5801165ED5BA009E250F /* FCCatalogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCCatalogViewController.h; sourceTree = "<group>"; };
 		0AAD5802165ED5BA009E250F /* FCCatalogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCCatalogViewController.m; sourceTree = "<group>"; };
+		0AAD5815165EDFF9009E250F /* FCImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FCImage.h; path = src/model/FCImage.h; sourceTree = "<group>"; };
+		0AAD5816165EDFF9009E250F /* FCImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FCImage.m; path = src/model/FCImage.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +93,8 @@
 		0A691E56165CA51300839686 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				0AAD5815165EDFF9009E250F /* FCImage.h */,
+				0AAD5816165EDFF9009E250F /* FCImage.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -306,6 +311,7 @@
 				0AAD57E7165DF6BB009E250F /* FCGiftNavigationController.m in Sources */,
 				0AAD57EA165DF70F009E250F /* FCPeopleNavigationController.m in Sources */,
 				0AAD5803165ED5BA009E250F /* FCCatalogViewController.m in Sources */,
+				0AAD5817165EDFF9009E250F /* FCImage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
