@@ -8,9 +8,9 @@
 
 #import "FCAppDelegate.h"
 
-#import "FCFirstViewController.h"
+#import "FCGiftNavigationController.h"
 
-#import "FCSecondViewController.h"
+#import "FCPeopleNavigationController.h"
 
 @implementation FCAppDelegate
 
@@ -18,8 +18,8 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    UIViewController *viewController1 = [[FCFirstViewController alloc] initWithNibName:@"FCFirstViewController" bundle:nil];
-    UIViewController *viewController2 = [[FCSecondViewController alloc] initWithNibName:@"FCSecondViewController" bundle:nil];
+    UIViewController *viewController1 = [[FCGiftNavigationController alloc] init];
+    UIViewController *viewController2 = [[FCPeopleNavigationController alloc] init];
     self.tabBarController = [[UITabBarController alloc] init];
     self.tabBarController.viewControllers = @[viewController1, viewController2];
     self.window.rootViewController = self.tabBarController;
