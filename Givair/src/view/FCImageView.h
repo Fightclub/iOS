@@ -7,14 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "FCImage.h"
 
-@interface FCImageView : UIView <FCImageLoaderDelegate> {
+#import "FCImage.h"
+#import "FCNetwork.h"
+
+@interface FCImageView : UIView <FCConnectionDelegate> {
     FCImage * mImage;
+    UIActivityIndicatorView * mSpinner;
 }
 
 - (id)initWithImage:(UIImage *)image;
-- (id)initWithFCImage:(FCImage *)image;
-- (id)initWithURL:(NSURL *)url;
+- (id)initWithFCImage:(FCImage *)image inFrame:(CGRect)frame;
+- (id)initWithURL:(NSURL *)url inFrame:(CGRect)frame;
 
 @end

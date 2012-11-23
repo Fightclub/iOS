@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#import "FCNetwork.h"
+
 @class FCImage;
 
 @protocol FCImageLoaderDelegate
@@ -17,13 +19,15 @@
 
 @end
 
-@interface FCImage : UIImage <NSURLConnectionDelegate> {
-    NSURL * mRemotePath;
+@interface FCImage : UIImage {
+    NSURL * mURL;
     BOOL mLoaded;
 }
 
 @property (nonatomic, readonly) BOOL loaded;
+@property (nonatomic, readonly) NSURL * url;
 
 - (id) initWithURL:(NSURL *)url;
++ (FCImage *) imageWithImage:(FCImage *)image scaledToSize:(CGSize)newSize;
 
 @end
