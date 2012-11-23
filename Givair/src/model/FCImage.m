@@ -10,4 +10,18 @@
 
 @implementation FCImage
 
+@synthesize loaded = mLoaded;
+
+- (id) initWithURL:(NSURL *)url {
+    self = [super init];
+    if (self) {
+        
+    }
+    return self;
+}
+
+- (BOOL) loaded {
+    return self.CGImage || self.CIImage;
+}
+
 @end

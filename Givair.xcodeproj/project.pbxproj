@@ -30,6 +30,7 @@
 		0AAD57FE165ED301009E250F /* tabBarPeople@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AAD57FC165ED301009E250F /* tabBarPeople@2x.png */; };
 		0AAD5803165ED5BA009E250F /* FCCatalogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAD5802165ED5BA009E250F /* FCCatalogViewController.m */; };
 		0AAD5817165EDFF9009E250F /* FCImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAD5816165EDFF9009E250F /* FCImage.m */; };
+		0AAD5839165EF086009E250F /* FCImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAD5838165EF086009E250F /* FCImageView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,8 @@
 		0AAD5802165ED5BA009E250F /* FCCatalogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCCatalogViewController.m; sourceTree = "<group>"; };
 		0AAD5815165EDFF9009E250F /* FCImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FCImage.h; path = src/model/FCImage.h; sourceTree = "<group>"; };
 		0AAD5816165EDFF9009E250F /* FCImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FCImage.m; path = src/model/FCImage.m; sourceTree = "<group>"; };
+		0AAD5837165EF086009E250F /* FCImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCImageView.h; sourceTree = "<group>"; };
+		0AAD5838165EF086009E250F /* FCImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCImageView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +86,7 @@
 		0A691E4F165CA4F700839686 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				0AAD5835165EF074009E250F /* UIElements */,
 				0AAD5804165ED986009E250F /* Gifts */,
 				0AAD5805165ED999009E250F /* People */,
 			);
@@ -230,6 +234,15 @@
 			name = People;
 			sourceTree = "<group>";
 		};
+		0AAD5835165EF074009E250F /* UIElements */ = {
+			isa = PBXGroup;
+			children = (
+				0AAD5837165EF086009E250F /* FCImageView.h */,
+				0AAD5838165EF086009E250F /* FCImageView.m */,
+			);
+			name = UIElements;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -312,6 +325,7 @@
 				0AAD57EA165DF70F009E250F /* FCPeopleNavigationController.m in Sources */,
 				0AAD5803165ED5BA009E250F /* FCCatalogViewController.m in Sources */,
 				0AAD5817165EDFF9009E250F /* FCImage.m in Sources */,
+				0AAD5839165EF086009E250F /* FCImageView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

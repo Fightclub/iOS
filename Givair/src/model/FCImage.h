@@ -8,8 +8,22 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FCImage : UIImage {
+@class FCImage;
+
+@protocol FCImageLoaderDelegate
+
+- (void)imageHasLoaded:(FCImage *)image;
+- (void)imageCouldNotLoad:(NSError *)error;
+
+@end
+
+@interface FCImage : UIImage <NSURLConnectionDelegate> {
     NSURL * mRemotePath;
+    BOOL mLoaded;
 }
+
+@property (nonatomic, readonly) BOOL loaded;
+
+- (id) initWithURL:(NSURL *)url;
 
 @end
