@@ -18,6 +18,6 @@
 
 - (id)initWithName:(NSString*)name;
 
-- (void)setIconImage:(UIImage*)image;
+- (void)setIconImage:(FCImage*)image;
 
 @end

@@ -34,8 +34,8 @@
     return mBannerImage;
 }
 
-- (void)setIconImage:(UIImage*)image {
-
+- (void)setIconImage:(FCImage*)image {
+    mIconImage = image;
 }
 
 @end

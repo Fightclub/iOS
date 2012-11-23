@@ -36,12 +36,12 @@
     return mPromoImage;
 }
 
-- (void)setPromoImage:(UIImage*)image {
-    
+- (void)setPromoImage:(FCImage*)image {
+    mPromoImage = image;
 }
 
-- (void)setIconImage:(UIImage*)image {
-
+- (void)setIconImage:(FCImage*)image {
+    mIconImage = image;
 }
 
 @end
