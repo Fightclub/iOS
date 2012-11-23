@@ -22,6 +22,14 @@
     return self;
 }
 
+- (id)initWithRequest:(NSURLRequest *)request delegate:(id)delegate {
+    self = [self initWithRequest:request delegate:delegate networkDelegate:AppDelegate.network startImmediately:YES];
+    if (self) {
+
+    }
+    return self;
+}
+
 @end
 
 
