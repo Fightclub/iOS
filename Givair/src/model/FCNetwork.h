@@ -25,11 +25,14 @@
 @property (nonatomic) id<FCConnectionDelegate> delegate;
 
 - (id)initWithRequest:(NSURLRequest *)request delegate:(id)delegate networkDelegate:(FCNetwork *)network startImmediately:(BOOL)startImmediately;
+- (id)initWithRequest:(NSURLRequest *)request delegate:(id)delegate;
 
 @end
 
 @interface FCNetwork : NSObject <NSURLConnectionDelegate, NSURLConnectionDataDelegate> {
     CFMutableDictionaryRef mActiveConnections;
 }
+
+- (FCConnection *)dataAtURL:(NSURL *)url delegate:(id<FCConnectionDelegate>) delegate;
 
 @end
