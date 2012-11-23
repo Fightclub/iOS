@@ -31,6 +31,7 @@
 		0AAD5803165ED5BA009E250F /* FCCatalogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAD5802165ED5BA009E250F /* FCCatalogViewController.m */; };
 		0AAD5817165EDFF9009E250F /* FCImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAD5816165EDFF9009E250F /* FCImage.m */; };
 		0AAD5839165EF086009E250F /* FCImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAD5838165EF086009E250F /* FCImageView.m */; };
+		0AAD582F165EE52E009E250F /* FCNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAD582E165EE52E009E250F /* FCNetwork.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +68,8 @@
 		0AAD5816165EDFF9009E250F /* FCImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FCImage.m; path = src/model/FCImage.m; sourceTree = "<group>"; };
 		0AAD5837165EF086009E250F /* FCImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCImageView.h; sourceTree = "<group>"; };
 		0AAD5838165EF086009E250F /* FCImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCImageView.m; sourceTree = "<group>"; };
+		0AAD582D165EE52E009E250F /* FCNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FCNetwork.h; path = src/model/FCNetwork.h; sourceTree = "<group>"; };
+		0AAD582E165EE52E009E250F /* FCNetwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FCNetwork.m; path = src/model/FCNetwork.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +102,8 @@
 			children = (
 				0AAD5815165EDFF9009E250F /* FCImage.h */,
 				0AAD5816165EDFF9009E250F /* FCImage.m */,
+				0AAD582D165EE52E009E250F /* FCNetwork.h */,
+				0AAD582E165EE52E009E250F /* FCNetwork.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -326,6 +331,7 @@
 				0AAD5803165ED5BA009E250F /* FCCatalogViewController.m in Sources */,
 				0AAD5817165EDFF9009E250F /* FCImage.m in Sources */,
 				0AAD5839165EF086009E250F /* FCImageView.m in Sources */,
+				0AAD582F165EE52E009E250F /* FCNetwork.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,14 +8,19 @@
 
 #import "FCAppDelegate.h"
 
-#import "FCGiftNavigationController.h"
+#import "FCNetwork.h"
 
+#import "FCGiftNavigationController.h"
 #import "FCPeopleNavigationController.h"
 
 @implementation FCAppDelegate
 
+@synthesize network = mNetwork;
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    mNetwork = [[FCNetwork alloc] init];
+
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     UIViewController *viewController1 = [[FCGiftNavigationController alloc] init];
