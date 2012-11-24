@@ -20,12 +20,16 @@
         self.title = @"Gifts";
         self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"giftsmall.png"]];
         mCatalog = [[FCCatalog alloc] initWithDelegate:self];
+        
+        mFeaturedCarousel = [[FCCarousel alloc] initWithStyle:FCCarouselStyleBanner];
+        [mFeaturedCarousel resize];
+        [self.view addSubview:mFeaturedCarousel];
     }
     return self;
 }
 
 - (void)catalogFinishedUpdating {
-    
+
 }
 
 - (void)viewDidLoad

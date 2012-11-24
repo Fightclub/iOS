@@ -10,6 +10,9 @@
 		0A09CD3B165CA6A0006DBF25 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A85E92A165CA46900983D56 /* main.m */; };
 		0A09CD47165CAB7C006DBF25 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A09CD45165CAB7C006DBF25 /* Icon.png */; };
 		0A09CD48165CAB7C006DBF25 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A09CD46165CAB7C006DBF25 /* Icon@2x.png */; };
+		0A30B14616615E3800CE472C /* FCCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A30B14516615E3800CE472C /* FCCarousel.m */; };
+		0A30B14916615EAD00CE472C /* FCCarouselBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A30B14816615EAD00CE472C /* FCCarouselBannerView.m */; };
+		0A30B14C16615F0200CE472C /* FCCarouselIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A30B14B16615F0200CE472C /* FCCarouselIconView.m */; };
 		0A691E4E165CA4AF00839686 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0A691E4A165CA4AF00839686 /* InfoPlist.strings */; };
 		0A691E5A165CA55300839686 /* FCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A691E59165CA55300839686 /* FCAppDelegate.m */; };
 		0A85E8E7165C9FAC00983D56 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A85E8E6165C9FAC00983D56 /* UIKit.framework */; };
@@ -41,6 +44,13 @@
 /* Begin PBXFileReference section */
 		0A09CD45165CAB7C006DBF25 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = Givair/img/Icon.png; sourceTree = "<group>"; };
 		0A09CD46165CAB7C006DBF25 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "Givair/img/Icon@2x.png"; sourceTree = "<group>"; };
+		0A30B14416615E3800CE472C /* FCCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCCarousel.h; sourceTree = "<group>"; };
+		0A30B14516615E3800CE472C /* FCCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCCarousel.m; sourceTree = "<group>"; };
+		0A30B14716615EAD00CE472C /* FCCarouselBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCCarouselBannerView.h; sourceTree = "<group>"; };
+		0A30B14816615EAD00CE472C /* FCCarouselBannerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCCarouselBannerView.m; sourceTree = "<group>"; };
+		0A30B14A16615F0200CE472C /* FCCarouselIconView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCCarouselIconView.h; sourceTree = "<group>"; };
+		0A30B14B16615F0200CE472C /* FCCarouselIconView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCCarouselIconView.m; sourceTree = "<group>"; };
+		0A30B14D16615F6900CE472C /* FCCarouselObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FCCarouselObject.h; sourceTree = "<group>"; };
 		0A691E4B165CA4AF00839686 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = gui/en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0A691E58165CA55300839686 /* FCAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FCAppDelegate.h; path = src/FCAppDelegate.h; sourceTree = "<group>"; };
 		0A691E59165CA55300839686 /* FCAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FCAppDelegate.m; path = src/FCAppDelegate.m; sourceTree = "<group>"; };
@@ -98,6 +108,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A30B14216615DB700CE472C /* Carousel */ = {
+			isa = PBXGroup;
+			children = (
+				0A30B14416615E3800CE472C /* FCCarousel.h */,
+				0A30B14516615E3800CE472C /* FCCarousel.m */,
+				0A30B14716615EAD00CE472C /* FCCarouselBannerView.h */,
+				0A30B14816615EAD00CE472C /* FCCarouselBannerView.m */,
+				0A30B14A16615F0200CE472C /* FCCarouselIconView.h */,
+				0A30B14B16615F0200CE472C /* FCCarouselIconView.m */,
+				0A30B14D16615F6900CE472C /* FCCarouselObject.h */,
+			);
+			name = Carousel;
+			sourceTree = "<group>";
+		};
 		0A691E4F165CA4F700839686 /* view */ = {
 			isa = PBXGroup;
 			children = (
@@ -262,6 +286,7 @@
 		0AAD5835165EF074009E250F /* UIElements */ = {
 			isa = PBXGroup;
 			children = (
+				0A30B14216615DB700CE472C /* Carousel */,
 				0AAD5862165EFFA3009E250F /* FCImageView.h */,
 				0AAD5863165EFFA3009E250F /* FCImageView.m */,
 			);
@@ -356,6 +381,9 @@
 				0AAD5864165EFFA3009E250F /* FCImageView.m in Sources */,
 				0AAD58B1165F69A3009E250F /* FCCatalog.m in Sources */,
 				0AAD58B516603839009E250F /* FCProductCategory.m in Sources */,
+				0A30B14616615E3800CE472C /* FCCarousel.m in Sources */,
+				0A30B14916615EAD00CE472C /* FCCarouselBannerView.m in Sources */,
+				0A30B14C16615F0200CE472C /* FCCarouselIconView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

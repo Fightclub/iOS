@@ -9,9 +9,11 @@
 #import <UIKit/UIKit.h>
 
 #import "FCCatalog.h"
+#import "FCCarousel.h"
 
 @interface FCCatalogViewController : UIViewController <FCCatalogDelegate> {
     FCCatalog * mCatalog;
+    FCCarousel * mFeaturedCarousel;
 }
 
 @end
