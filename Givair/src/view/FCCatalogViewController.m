@@ -19,8 +19,13 @@
     if (self) {
         self.title = @"Gifts";
         self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"giftsmall.png"]];
+        mCatalog = [[FCCatalog alloc] initWithDelegate:self];
     }
     return self;
+}
+
+- (void)catalogFinishedUpdating {
+    
 }
 
 - (void)viewDidLoad

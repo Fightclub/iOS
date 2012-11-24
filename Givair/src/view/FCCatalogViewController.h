@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FCCatalogViewController : UIViewController
+#import "FCCatalog.h"
+
+@interface FCCatalogViewController : UIViewController <FCCatalogDelegate> {
+    FCCatalog * mCatalog;
+}
 
 @end
