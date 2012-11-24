@@ -46,7 +46,6 @@ typedef enum {
 }
 
 - (void)addProductCategory:(FCProductCategory *)category {
-    NSLog(@"Adding category: %i", category.ID);
     [mProductCategories setValue:category forKey:[NSString stringWithFormat:@"%i", category.ID]];
 }
 
