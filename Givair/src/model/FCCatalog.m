@@ -38,15 +38,18 @@ typedef enum {
 }
 
 - (void)addProduct:(FCProduct *)product {
-    [mProducts setValue:product forKey:[NSString stringWithFormat:@"%i", product.ID]];
+    if (![mProducts objectForKey:[NSString stringWithFormat:@"%i", product.ID]])
+        [mProducts setValue:product forKey:[NSString stringWithFormat:@"%i", product.ID]];
 }
 
 - (void)addVendor:(FCVendor *)vendor {
-    [mVendors setValue:vendor forKey:[NSString stringWithFormat:@"%i", vendor.ID]];
+    if (![mVendors objectForKey:[NSString stringWithFormat:@"%i", vendor.ID]])
+        [mVendors setValue:vendor forKey:[NSString stringWithFormat:@"%i", vendor.ID]];
 }
 
 - (void)addProductCategory:(FCProductCategory *)category {
-    [mProductCategories setValue:category forKey:[NSString stringWithFormat:@"%i", category.ID]];
+    if (![mProductCategories objectForKey:[NSString stringWithFormat:@"%i", category.ID]])
+        [mProductCategories setValue:category forKey:[NSString stringWithFormat:@"%i", category.ID]];
 }
 
 - (void)downloadCatalog {
