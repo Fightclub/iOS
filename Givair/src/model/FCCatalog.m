@@ -21,7 +21,7 @@ typedef enum {
 
 @implementation FCCatalog
 
-- (id) init {
+- (id) initWithDelegate:(id<FCCatalogDelegate>)delegate {
     self = [super init];
     if (self) {
         mProducts = [[NSMutableDictionary alloc] init];
@@ -31,6 +31,7 @@ typedef enum {
                                                        0,
                                                        &kCFTypeDictionaryKeyCallBacks,
                                                        &kCFTypeDictionaryValueCallBacks);
+        mDelegate = delegate;
         [self downloadCatalog];
     }
     return self;
@@ -45,6 +46,7 @@ typedef enum {
 }
 
 - (void)addProductCategory:(FCProductCategory *)category {
+    NSLog(@"Adding category: %i", category.ID);
     [mProductCategories setValue:category forKey:[NSString stringWithFormat:@"%i", category.ID]];
 }
 
@@ -140,6 +142,10 @@ typedef enum {
     }
 }
 
+- (BOOL)updating{
+    return CFDictionaryGetCount(mActiveConnections) > 0;
+}
+
 
 #pragma mark - FCConnectionDelegate
 
@@ -162,12 +168,17 @@ typedef enum {
         }
         CFDictionaryRemoveValue(mActiveConnections, (__bridge const void *)connection);
     }
+    if (![self updating]) {
+        [mDelegate catalogFinishedUpdating];
+    }
 }
 
 - (void)connection:(FCConnection *)connection failedWithError:(NSError *)error {
     if (CFDictionaryContainsKey(mActiveConnections, (__bridge const void *)connection))
         CFDictionaryRemoveValue(mActiveConnections, (__bridge const void *)connection);
-
+    if (![self updating]) {
+        [mDelegate catalogFinishedUpdating];
+    }
 }
 
 @end
