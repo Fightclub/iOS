@@ -14,13 +14,23 @@
 @class FCProductCategory;
 @class FCVendor;
 
+@protocol FCCatalogDelegate
+
+- (void)catalogFinishedUpdating;
+
+@end
+
 @interface FCCatalog : NSObject <FCConnectionDelegate> {
     NSMutableDictionary * mProducts;
     NSMutableDictionary * mProductCategories;
     NSMutableDictionary * mVendors;
 
     CFMutableDictionaryRef mActiveConnections;
+
+    id<FCCatalogDelegate> mDelegate;
 }
+
+- (id) initWithDelegate:(id<FCCatalogDelegate>)delegate;
 
 - (void)addProduct:(FCProduct *)product;
 - (void)addVendor:(FCVendor *)vendor;
@@ -28,5 +38,6 @@
 - (FCProduct *)getProductWithID:(int)ID;
 - (FCProductCategory *)getProductCategoryWithID:(int)ID;
 - (FCVendor *)getVendorWithID:(int)ID;
+- (BOOL)updating;
 
 @end
