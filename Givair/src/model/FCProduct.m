@@ -8,14 +8,28 @@
 
 #import "FCProduct.h"
 
+#import "FCCatalog.h"
+#import "FCImage.h"
+#import "FCVendor.h"
+
 @implementation FCProduct
 
-- (id)initWithName:(NSString*)name SKU:(NSString*)sku vendor:(FCVendor*)vendor {
+@synthesize ID = mID;
+@synthesize price = mPrice;
+@synthesize name = mName;
+@synthesize sku = mSKU;
+@synthesize vendor = mVendor;
+
+- (id)initWithID:(int)ID price:(float)price name:(NSString*)name description:(NSString*)description SKU:(NSString*)sku vendor:(FCVendor*)vendor iconImage:(NSURL *)iconURL{
     self = [super init];
     if (self) {
+        mID = ID;
+        mPrice = price;
         mName = name;
         mSKU = sku;
         mVendor = vendor;
+        mIconImage = [[FCImage alloc] initWithURL:iconURL];
+        [mVendor addProduct:self];
     }
     return self;
 }

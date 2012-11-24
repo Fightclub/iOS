@@ -1,5 +1,5 @@
 //
-//  FCVendor.h
+//  FCProductCategory.h
 //  Givair
 //
 //  Created by Peter Tsoi on 11/23/12.
@@ -11,7 +11,7 @@
 @class FCImage;
 @class FCProduct;
 
-@interface FCVendor : NSObject {
+@interface FCProductCategory : NSObject {
     int mID;
     NSString * mName;
     FCImage * mIconImage;

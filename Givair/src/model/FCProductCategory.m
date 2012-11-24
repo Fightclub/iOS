@@ -1,17 +1,17 @@
 //
-//  FCVendor.m
+//  FCProductCategory.m
 //  Givair
 //
 //  Created by Peter Tsoi on 11/23/12.
 //  Copyright (c) 2012 Fightclub. All rights reserved.
 //
 
-#import "FCVendor.h"
+#import "FCProductCategory.h"
 
 #import "FCImage.h"
 #import "FCProduct.h"
 
-@implementation FCVendor
+@implementation FCProductCategory
 
 @synthesize ID = mID;
 @synthesize name = mName;
@@ -26,10 +26,6 @@
         mProducts = [[NSMutableDictionary alloc] init];
     }
     return self;
-}
-
-- (NSString*)getDescription {
-    return @"Description";
 }
 
 - (void)addProduct:(FCProduct *)product {
