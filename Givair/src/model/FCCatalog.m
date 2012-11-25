@@ -137,7 +137,8 @@ typedef enum {
                                                        description:[info objectForKey:@"description"]
                                                                SKU:[info objectForKey:@"sku"]
                                                             vendor:vendor
-                                                         iconImage:[NSURL URLWithString:[info objectForKey:@"icon"]]];
+                                                         iconImage:[NSURL URLWithString:[info objectForKey:@"icon"]]
+                                                       bannerImage:[NSURL URLWithString:[info objectForKey:@"banner"]]];
             [self addProduct:newProduct];
             for (NSDictionary * categoryInfo in categoryInfos) {
                 FCProductCategory * category = [self getProductCategoryWithID:[[categoryInfo objectForKey:@"id"] intValue]];
