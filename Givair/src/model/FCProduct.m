@@ -20,7 +20,7 @@
 @synthesize sku = mSKU;
 @synthesize vendor = mVendor;
 
-- (id)initWithID:(int)ID price:(float)price name:(NSString*)name description:(NSString*)description SKU:(NSString*)sku vendor:(FCVendor*)vendor iconImage:(NSURL *)iconURL{
+- (id)initWithID:(int)ID price:(float)price name:(NSString*)name description:(NSString*)description SKU:(NSString*)sku vendor:(FCVendor*)vendor iconImage:(NSURL *)iconURL bannerImage:(NSURL *)bannerURL{
     self = [super init];
     if (self) {
         mID = ID;
@@ -29,6 +29,7 @@
         mSKU = sku;
         mVendor = vendor;
         mIconImage = [[FCImage alloc] initWithURL:iconURL];
+        mBannerImage = [[FCImage alloc] initWithURL:bannerURL];
         [mVendor addProduct:self];
     }
     return self;
@@ -47,11 +48,11 @@
 }
 
 - (FCImage*)getBanner {
-    return mPromoImage;
+    return mBannerImage;
 }
 
-- (void)setPromoImage:(FCImage*)image {
-    mPromoImage = image;
+- (void)setBannerImage:(FCImage*)image {
+    mBannerImage = image;
 }
 
 - (void)setIconImage:(FCImage*)image {

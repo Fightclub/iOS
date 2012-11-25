@@ -21,7 +21,7 @@
     NSString * mSKU;
     FCVendor * mVendor;
 
-    FCImage * mPromoImage;
+    FCImage * mBannerImage;
     FCImage * mIconImage;
 }
 
@@ -32,8 +32,14 @@
 @property (nonatomic, readonly) NSString * sku;
 @property (nonatomic, readonly) FCVendor * vendor;
 
-- (id)initWithID:(int)ID price:(float)price name:(NSString*)name description:(NSString*)description SKU:(NSString*)sku vendor:(FCVendor*)vendor iconImage:(NSURL *)iconURL;
-- (void)setPromoImage:(FCImage*)image;
+- (id)initWithID:(int)ID
+           price:(float)price name:(NSString*)name
+     description:(NSString*)description
+             SKU:(NSString*)sku
+          vendor:(FCVendor*)vendor
+       iconImage:(NSURL *)iconURL
+     bannerImage:(NSURL *)bannerURL;
+- (void)setBannerImage:(FCImage*)image;
 - (void)setIconImage:(FCImage*)image;
 
 @end
