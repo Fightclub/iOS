@@ -35,6 +35,7 @@
 - (void)addProduct:(FCProduct *)product;
 - (void)addVendor:(FCVendor *)vendor;
 - (void)downloadProductWithID:(int)ID;
+- (void)downloadProductCategoryWithID:(int)ID;
 - (FCProduct *)getProductWithID:(int)ID;
 - (FCProductCategory *)getProductCategoryWithID:(int)ID;
 - (FCVendor *)getVendorWithID:(int)ID;

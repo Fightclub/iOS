@@ -16,6 +16,7 @@
 typedef enum {
     kFCCatalogNetworkTaskCatalogDownload,
     kFCCatalogNetworkTaskProductDownload,
+    kFCCatalogNetworkTaskProductCategoryDownload,
     kFCCatalogNetworkTaskVendorDownload,
 } kFCCatalogNetworkTask;
 
@@ -70,6 +71,14 @@ typedef enum {
 
 }
 
+- (void)downloadProductCategoryWithID:(int)ID {
+    FCConnection * conn = [AppDelegate.network dataAtURL:[NSURL URLWithString:[NSString stringWithFormat:@"catalog/a/product/category?id=%i", ID]
+                                                                relativeToURL:[NSURL URLWithString:@"http://fight-club-beta.herokuapp.com"]] delegate:self];
+    CFDictionaryAddValue(mActiveConnections,
+                         (__bridge const void *)conn,
+                         (__bridge const void *)[NSString stringWithFormat:@"%i",kFCCatalogNetworkTaskProductCategoryDownload]);
+}
+
 - (FCProduct *)getProductWithID:(int)ID {
     return [mProducts objectForKey:[NSString stringWithFormat:@"%i", ID]];
 }
@@ -112,7 +121,7 @@ typedef enum {
 - (void)downloadedProductInfo:(NSDictionary *)info {
     if (![self getProductWithID:[[info objectForKey:@"id"] intValue]]) {
         NSDictionary * vendorInfo = [info objectForKey:@"vendor"];
-        NSMutableArray * categoryInfos = [info objectForKey:@"categories"];
+        NSArray * categoryInfos = [info objectForKey:@"categories"];
         if (vendorInfo) {
             FCVendor * vendor = [self getVendorWithID:[[vendorInfo objectForKey:@"id"] intValue]];
             if (!vendor) {
@@ -144,6 +153,22 @@ typedef enum {
     }
 }
 
+- (void)downloadedProductCategoryInfo:(NSDictionary *)info {
+    if ([info objectForKey:@"id"]) {
+        FCProductCategory * category = [self getProductCategoryWithID:[[info objectForKey:@"id"] intValue]];
+        if (!category) {
+            category = [[FCProductCategory alloc] initWithID:[[info objectForKey:@"id"] intValue]
+                                                        name:[info objectForKey:@"name"]
+                                                   iconImage:[NSURL URLWithString:[info objectForKey:@"icon"]]];
+            [self addProductCategory:category];
+        }
+        NSArray * productInfos = [info objectForKey:@"products"];
+        for (NSDictionary * productInfo in productInfos) {
+            [self downloadedProductInfo:productInfo];
+        }
+    }
+}
+
 - (BOOL)updating{
     return CFDictionaryGetCount(mActiveConnections) > 0;
 }
@@ -164,7 +189,10 @@ typedef enum {
             case kFCCatalogNetworkTaskProductDownload:
                 [self downloadedProductInfo:info];
                 break;
-                
+            case kFCCatalogNetworkTaskProductCategoryDownload:
+                [self downloadedProductCategoryInfo:info];
+                break;
+
             default:
                 break;
         }
@@ -178,7 +206,7 @@ typedef enum {
 - (void)connection:(FCConnection *)connection failedWithError:(NSError *)error {
     if (CFDictionaryContainsKey(mActiveConnections, (__bridge const void *)connection))
         CFDictionaryRemoveValue(mActiveConnections, (__bridge const void *)connection);
-    if (![self updating]) {
+    if (![self updating] && mDelegate) {
         [mDelegate catalogFinishedUpdating];
     }
 }
