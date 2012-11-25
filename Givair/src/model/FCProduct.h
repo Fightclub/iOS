@@ -8,10 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+#import "FCCarouselObject.h"
+
 @class FCImage;
 @class FCVendor;
 
-@interface FCProduct : NSObject {
+@interface FCProduct : NSObject <FCCarouselObject> {
     int mID;
     float mPrice;
     NSString * mName;

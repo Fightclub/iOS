@@ -8,6 +8,9 @@
 
 #import "FCCatalogViewController.h"
 
+#import "FCProduct.h"
+#import "FCProductCategory.h"
+
 @interface FCCatalogViewController ()
 
 @end
@@ -20,6 +23,7 @@
         self.title = @"Gifts";
         self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"giftsmall.png"]];
         mCatalog = [[FCCatalog alloc] initWithDelegate:self];
+        [mCatalog downloadProductCategoryWithID:2];
         
         mFeaturedCarousel = [[FCCarousel alloc] initWithStyle:FCCarouselStyleBanner];
         [mFeaturedCarousel resize];
@@ -28,8 +32,14 @@
     return self;
 }
 
-- (void)catalogFinishedUpdating {
+- (void)setupFeaturedCatalog:(FCProductCategory *)category {
+    [mFeaturedCarousel setObjects:[category getProducts]];
+}
 
+- (void)catalogFinishedUpdating {
+    if ([mFeaturedCarousel count] != [mCatalog getProductCategoryWithID:2].count) {
+        [self setupFeaturedCatalog:[mCatalog getProductCategoryWithID:2]];
+    }
 }
 
 - (void)viewDidLoad

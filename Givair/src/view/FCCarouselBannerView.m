@@ -8,7 +8,9 @@
 
 #import "FCCarouselBannerView.h"
 
+#import "FCCarouselObject.h"
 #import "FCImageView.h"
+#import "FCImage.h"
 
 @implementation FCCarouselBannerView
 
@@ -16,8 +18,8 @@
     self = [super init];
     if (self) {
         mObject = object;
-        FCImageView * image = [[FCImageView alloc] initWithImage:[mObject getBanner]];
-        [image setFrame:CGRectMake(0, 0, CAROUSEL_BANNER_WIDTH, CAROUSEL_BANNER_HEIGHT)];
+        FCImageView * image = [[FCImageView alloc] initWithFCImage:[mObject getBanner]
+                                                           inFrame:CGRectMake(0, 0, CAROUSEL_BANNER_WIDTH, CAROUSEL_BANNER_HEIGHT)];
         [self addSubview:image];
     }
     return self;

@@ -18,7 +18,7 @@
     self = [super init];
     if (self) {
         self.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleWidth;
-        [self setBackgroundColor:[UIColor whiteColor]];
+        mObjects = [[NSArray alloc] init];
     }
     return self;
 }
@@ -63,6 +63,10 @@
     if (mStyle == FCCarouselStyleIcons) {
         // Add title to view
     }
+}
+
+- (int)count {
+    return [mObjects count];
 }
 
 - (void)setObjects:(NSArray*)objects {

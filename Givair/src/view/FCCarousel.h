@@ -26,5 +26,6 @@ typedef enum {
 - (void)resize;
 
 - (void)setObjects:(NSArray*)objects;
+- (int)count;
 
 @end

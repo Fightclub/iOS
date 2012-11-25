@@ -20,8 +20,9 @@
     self = [super initWithFrame:CGRectMake(0.0, 0.0, CAROUSEL_ICON_WIDTH, CAROUSEL_ICON_HEIGHT)];
     if (self) {
         mObject = object;
-        FCImageView * iconView = [[FCImageView alloc] initWithImage:[mObject getIcon]];
-        [iconView setFrame:CGRectMake((CAROUSEL_ICON_WIDTH-ICON_VIEW_WIDTH)/2, 0.0f, ICON_VIEW_WIDTH, ICON_VIEW_HEIGHT)];
+        FCImageView * iconView = [[FCImageView alloc] initWithFCImage:[mObject getIcon]
+                                                              inFrame:CGRectMake((CAROUSEL_ICON_WIDTH-ICON_VIEW_WIDTH)/2, 0.0f,
+                                                                                 ICON_VIEW_WIDTH, ICON_VIEW_HEIGHT)];
         [self addSubview:iconView];
 
         [self setBackgroundColor:[UIColor clearColor]];
