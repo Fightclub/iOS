@@ -13,7 +13,7 @@
 #define CAROUSEL_BANNER_WIDTH  320.0f
 #define CAROUSEL_BANNER_HEIGHT 130.0f
 
-@interface FCCarouselBannerView : UIView {
+@interface FCCarouselBannerView : UIControl {
     id <FCCarouselObject> mObject;
 }
 

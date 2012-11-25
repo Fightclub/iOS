@@ -20,18 +20,11 @@
         mObject = object;
         FCImageView * image = [[FCImageView alloc] initWithFCImage:[mObject getBanner]
                                                            inFrame:CGRectMake(0, 0, CAROUSEL_BANNER_WIDTH, CAROUSEL_BANNER_HEIGHT)];
+        [self setFrame:image.frame];
+        [image setUserInteractionEnabled:NO];
         [self addSubview:image];
     }
     return self;
 }
-
-/*
- // Only override drawRect: if you perform custom drawing.
- // An empty implementation adversely affects performance during animation.
- - (void)drawRect:(CGRect)rect
- {
- // Drawing code
- }
- */
 
 @end

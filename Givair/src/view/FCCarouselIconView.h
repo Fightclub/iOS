@@ -14,7 +14,7 @@
 #define CAROUSEL_ICON_HEIGHT 100.0f
 #define CAROUSEL_ICON_TITLE_HEIGHT 30.0f
 
-@interface FCCarouselIconView : UIView {
+@interface FCCarouselIconView : UIControl {
     id <FCCarouselObject> mObject;
 }
 

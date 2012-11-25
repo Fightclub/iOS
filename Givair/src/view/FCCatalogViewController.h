@@ -11,7 +11,7 @@
 #import "FCCatalog.h"
 #import "FCCarousel.h"
 
-@interface FCCatalogViewController : UIViewController <FCCatalogDelegate> {
+@interface FCCatalogViewController : UIViewController <FCCatalogDelegate, FCCarouselDelegate> {
     FCCatalog * mCatalog;
     FCCarousel * mFeaturedCarousel;
     FCCarousel * mCategoryCarousel;

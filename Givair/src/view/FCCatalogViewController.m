@@ -30,16 +30,19 @@
         [mCatalog downloadProductCategoryWithID:1];
         
         mFeaturedCarousel = [[FCCarousel alloc] initWithStyle:FCCarouselStyleBanner];
+        mFeaturedCarousel.delegate = self;
         [mFeaturedCarousel resize];
         [self.view addSubview:mFeaturedCarousel];
 
         mCategoryCarousel = [[FCCarousel alloc] initWithStyle:FCCarouselStyleIcons];
+        mCategoryCarousel.delegate = self;
         [mCategoryCarousel resize];
         [mCategoryCarousel setFrame:CGRectMake(mFeaturedCarousel.frame.origin.x, mFeaturedCarousel.frame.origin.y + mFeaturedCarousel.frame.size.height,
                                                mCategoryCarousel.frame.size.width, mCategoryCarousel.frame.size.height)];
         [self.view addSubview:mCategoryCarousel];
 
         mVendorCarousel = [[FCCarousel alloc] initWithStyle:FCCarouselStyleIcons];
+        mVendorCarousel.delegate = self;
         [mVendorCarousel resize];
         [mVendorCarousel setFrame:CGRectMake(mFeaturedCarousel.frame.origin.x, mCategoryCarousel.frame.origin.y + mCategoryCarousel.frame.size.height,
                                              mVendorCarousel.frame.size.width, mVendorCarousel.frame.size.height)];
@@ -107,6 +110,10 @@
         [mSpinner removeFromSuperview];
         [mStatusLabel removeFromSuperview];
     }
+}
+
+- (void)didSelectCarouselObject:(id<FCCarouselObject>)object {
+
 }
 
 - (void)viewDidLoad
