@@ -25,5 +25,7 @@
 
 - (id)initWithID:(int)ID name:(NSString *)name iconImage:(NSURL *)iconURL;
 - (void)addProduct:(FCProduct *)product;
+- (int)count;
+- (NSArray *)getProducts;
 
 @end

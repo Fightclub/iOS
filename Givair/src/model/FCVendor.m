@@ -38,4 +38,12 @@
     }
 }
 
+- (int)count {
+    return [mProducts count];
+}
+
+- (NSArray *)getProducts {
+    return [mProducts allValues];
+}
+
 @end
