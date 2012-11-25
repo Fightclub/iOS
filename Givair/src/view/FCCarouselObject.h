@@ -13,10 +13,10 @@
 @protocol FCCarouselObject
 
 - (NSString*)getName;
-- (FCImage*)getIcon;
-- (FCImage*)getBanner;
 
 @optional
 - (NSString*)getDescription;
+- (FCImage*)getBanner;
+- (FCImage*)getIcon;
 
 @end

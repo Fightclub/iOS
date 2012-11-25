@@ -39,6 +39,8 @@
 - (FCProduct *)getProductWithID:(int)ID;
 - (FCProductCategory *)getProductCategoryWithID:(int)ID;
 - (FCVendor *)getVendorWithID:(int)ID;
+- (NSArray *)getProductCategories;
+- (NSArray *)getVendors;
 - (BOOL)updating;
 
 @end

@@ -91,6 +91,14 @@ typedef enum {
     return [mVendors objectForKey:[NSString stringWithFormat:@"%i", ID]];
 }
 
+- (NSArray *)getProductCategories {
+    return [mProductCategories allValues];
+}
+
+- (NSArray *)getVendors {
+    return [mVendors allValues];
+}
+
 #pragma mark - Network Callbacks
 
 - (void)downloadedCatalogInfo:(NSDictionary *)info {

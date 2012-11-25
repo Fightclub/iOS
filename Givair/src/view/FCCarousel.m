@@ -19,6 +19,7 @@
     if (self) {
         self.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleWidth;
         mObjects = [[NSArray alloc] init];
+        mCurrentIndex = 0;
     }
     return self;
 }
@@ -28,14 +29,23 @@
     if (self) {
         mStyle = style;
         mScroller = [[UIScrollView alloc] init];
-        [mScroller setAlwaysBounceHorizontal:YES];
+        mScroller.delegate = self;
         [mScroller setShowsHorizontalScrollIndicator:NO];
+        [mScroller setAlwaysBounceHorizontal:YES];
+        [mScroller setBackgroundColor:[UIColor clearColor]];
         if (mStyle == FCCarouselStyleBanner) {
             [mScroller setFrame:CGRectMake(0, 0,
                                            CAROUSEL_BANNER_WIDTH, CAROUSEL_BANNER_HEIGHT)];
         } else if (mStyle == FCCarouselStyleIcons) {
-            [mScroller setFrame:CGRectMake(0, CAROUSEL_BANNER_HEIGHT-CAROUSEL_ICON_HEIGHT,
+            [mScroller setFrame:CGRectMake(0, CAROUSEL_ICON_TITLE_HEIGHT,
                                            CAROUSEL_BANNER_WIDTH, CAROUSEL_ICON_HEIGHT)];
+            mTitleLabel = [[UILabel alloc] init];
+            [mTitleLabel setFont:[UIFont fontWithName:@"MyriadApple-Bold" size:18.0f]];
+            [mTitleLabel setShadowColor:[UIColor whiteColor]];
+            [mTitleLabel setShadowOffset:CGSizeMake(0.0, 1.0)];
+            [mTitleLabel setTextColor:[UIColor colorWithWhite:0.37f alpha:1.0f]];
+            [mTitleLabel setBackgroundColor:[UIColor clearColor]];
+            mTitleLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         }
         [self addSubview:mScroller];
     }
@@ -52,16 +62,20 @@
 
 - (void)resize {
     if (mStyle == FCCarouselStyleBanner) {
-        self.frame = mScroller.frame;
+        self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y,
+                                mScroller.frame.size.width, mScroller.frame.size.height);
     } else if (mStyle == FCCarouselStyleIcons) {
-        [mScroller setFrame:CGRectMake(0, 0, CAROUSEL_BANNER_WIDTH, CAROUSEL_BANNER_HEIGHT)];
+        self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y,
+                                CAROUSEL_BANNER_WIDTH, CAROUSEL_BANNER_HEIGHT);
+        [mTitleLabel setFrame:CGRectMake(10.0f, 0.0f, self.frame.size.width-50, 30)];
     }
 }
 
 - (void)setTitle:(NSString*)title {
     mTitle = title;
     if (mStyle == FCCarouselStyleIcons) {
-        // Add title to view
+        mTitleLabel.text = mTitle;
+        [self addSubview:mTitleLabel];
     }
 }
 
@@ -107,6 +121,37 @@
                                 view.frame.size.width, view.frame.size.height);
     }
     [mScroller addSubview:view];
+}
+
+- (void)scrollToIndex:(int)index animated:(BOOL)animated {
+    if (mStyle == FCCarouselStyleBanner) {
+        if (index < 0)
+            index = 0;
+        else if (index >= [self count])
+            index = [self count]-1;
+        [mScroller scrollRectToVisible:CGRectMake(index*CAROUSEL_BANNER_WIDTH, 0.0, mScroller.frame.size.width, mScroller.frame.size.height) animated:animated];
+        mCurrentIndex = index;
+    } else if (mStyle == FCCarouselStyleIcons) {
+        [mScroller scrollRectToVisible:CGRectMake(index*CAROUSEL_ICON_WIDTH, 0.0, mScroller.frame.size.width, mScroller.frame.size.height) animated:animated];
+    }
+}
+
+#pragma mark - UIScrollViewDelegate
+
+- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
+    CGPoint offset = scrollView.contentOffset;
+    if (mStyle == FCCarouselStyleBanner) {
+        *targetContentOffset = offset;
+        if (velocity.x > 0.5) {
+            [self scrollToIndex:mCurrentIndex+1 animated:YES];
+        } else if (velocity.x < -0.5) {
+            [self scrollToIndex:mCurrentIndex-1 animated:YES];
+        } else {
+            [self scrollToIndex:(int)round(offset.x/CAROUSEL_BANNER_WIDTH) animated:YES];
+        }
+    } else if (mStyle == FCCarouselStyleIcons) {
+
+    }
 }
 
 @end

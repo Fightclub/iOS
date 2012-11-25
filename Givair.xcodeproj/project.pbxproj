@@ -39,6 +39,8 @@
 		0AAD588D165F6510009E250F /* FCVendor.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAD588C165F6510009E250F /* FCVendor.m */; };
 		0AAD58B1165F69A3009E250F /* FCCatalog.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAD58B0165F69A3009E250F /* FCCatalog.m */; };
 		0AAD58B516603839009E250F /* FCProductCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAD58B416603839009E250F /* FCProductCategory.m */; };
+		0AE9B4EC166206A4009D6B5B /* MYRIADAS.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 0AE9B4EB166206A4009D6B5B /* MYRIADAS.TTF */; };
+		0AE9B4EE166208DC009D6B5B /* MYRIADAB.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 0AE9B4ED166208DC009D6B5B /* MYRIADAB.TTF */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,6 +94,8 @@
 		0AAD58B0165F69A3009E250F /* FCCatalog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FCCatalog.m; path = src/model/FCCatalog.m; sourceTree = "<group>"; };
 		0AAD58B316603839009E250F /* FCProductCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FCProductCategory.h; path = src/model/FCProductCategory.h; sourceTree = "<group>"; };
 		0AAD58B416603839009E250F /* FCProductCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FCProductCategory.m; path = src/model/FCProductCategory.m; sourceTree = "<group>"; };
+		0AE9B4EB166206A4009D6B5B /* MYRIADAS.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; name = MYRIADAS.TTF; path = img/MYRIADAS.TTF; sourceTree = "<group>"; };
+		0AE9B4ED166208DC009D6B5B /* MYRIADAB.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; name = MYRIADAB.TTF; path = img/MYRIADAB.TTF; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,6 +214,7 @@
 		0A85E918165CA00E00983D56 /* img */ = {
 			isa = PBXGroup;
 			children = (
+				0AE9B4E91662069D009D6B5B /* Fonts */,
 				0AAD5800165ED46F009E250F /* NavigationBar */,
 				0AAD57FF165ED450009E250F /* TabBar */,
 				0A85E91B165CA2FB00983D56 /* Default-568h@2x.png */,
@@ -293,6 +298,15 @@
 			name = UIElements;
 			sourceTree = "<group>";
 		};
+		0AE9B4E91662069D009D6B5B /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				0AE9B4ED166208DC009D6B5B /* MYRIADAB.TTF */,
+				0AE9B4EB166206A4009D6B5B /* MYRIADAS.TTF */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -359,6 +373,8 @@
 				0AAD57FA165ED2D2009E250F /* tabBarGift@2x.png in Resources */,
 				0AAD57FD165ED301009E250F /* tabBarPeople.png in Resources */,
 				0AAD57FE165ED301009E250F /* tabBarPeople@2x.png in Resources */,
+				0AE9B4EC166206A4009D6B5B /* MYRIADAS.TTF in Resources */,
+				0AE9B4EE166208DC009D6B5B /* MYRIADAB.TTF in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

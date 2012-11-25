@@ -38,7 +38,7 @@
 - (id)initWithURL:(NSURL *)url inFrame:(CGRect)frame {
     self = [self initWithFrame:frame];
     if (self) {
-        mSpinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+        mSpinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
         mSpinner.center = self.center;
         [mSpinner startAnimating];
         [self addSubview:mSpinner];

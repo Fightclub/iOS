@@ -13,18 +13,22 @@ typedef enum {
     FCCarouselStyleIcons
 } FCCarouselStyle;
 
-@interface FCCarousel : UIView {
+@interface FCCarousel : UIView <UIScrollViewDelegate> {
     NSArray * mObjects;
     NSArray * mViews;
     NSString * mTitle;
     FCCarouselStyle mStyle;
     UIScrollView * mScroller;
+
+    UILabel * mTitleLabel;
+    int mCurrentIndex;
 }
 
 - (id)initWithStyle:(FCCarouselStyle)style;
 - (id)initWithStyle:(FCCarouselStyle)style andObjects:(NSArray*)objects;
 - (void)resize;
 
+- (void)setTitle:(NSString*)title;
 - (void)setObjects:(NSArray*)objects;
 - (int)count;
 

@@ -42,6 +42,14 @@
     return [mProducts count];
 }
 
+- (NSString *)getName {
+    return mName;
+}
+
+- (FCImage *)getIcon {
+    return mIconImage;
+}
+
 - (NSArray *)getProducts {
     return [mProducts allValues];
 }
