@@ -23,6 +23,9 @@
         self.title = @"Gifts";
         self.tabBarItem.image = [UIImage imageNamed:@"tabBarGift.png"];
         [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"blanknavbarbg"] forBarMetrics: UIBarMetricsDefault];
+        NSMutableDictionary *titleBarAttributes = [NSMutableDictionary dictionaryWithDictionary: [[UINavigationBar appearance] titleTextAttributes]];
+        [titleBarAttributes setValue:[UIFont fontWithName:@"MyriadApple-Bold" size:22.0f] forKey:UITextAttributeFont];
+        [[UINavigationBar appearance] setTitleTextAttributes:titleBarAttributes];
     }
     return self;
 }

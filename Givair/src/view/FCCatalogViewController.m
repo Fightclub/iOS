@@ -23,7 +23,6 @@
     self = [super init];
     if (self) {
         self.title = @"Gifts";
-        self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"giftsmall.png"]];
         UIScrollView * content = [[UIScrollView alloc] initWithFrame:self.view.frame];
         self.view = content;
 
@@ -116,6 +115,7 @@
 
 - (void)didSelectCarouselItem:(id)item {
     NSObject * object = ((FCCarouselIconView *)item).carouselObject;
+    UIViewController * newView;
     if ([object isKindOfClass:[FCProduct class]]) {
         FCProduct * product = (FCProduct *)object;
         NSLog(@"Selected product %@", product.name);
@@ -125,6 +125,9 @@
     } else if ([object isKindOfClass:[FCVendor class]]) {
         FCVendor * vendor = (FCVendor *)object;
         NSLog(@"Selected vendor %@", vendor.name);
+    }
+    if (newView) {
+        [self.navigationController pushViewController:newView animated:YES];
     }
 }
 
