@@ -16,6 +16,9 @@
     FCCarousel * mFeaturedCarousel;
     FCCarousel * mCategoryCarousel;
     FCCarousel * mVendorCarousel;
+
+    UIActivityIndicatorView * mSpinner;
+    UILabel * mStatusLabel;
 }
 
 @end

@@ -47,6 +47,24 @@
 
         [content setContentSize:CGSizeMake(self.view.frame.size.width, mVendorCarousel.frame.origin.y + mVendorCarousel.frame.size.height)];
         [content setAlwaysBounceVertical:YES];
+
+        mSpinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        mSpinner.center = mCategoryCarousel.center;
+        [self.view addSubview:mSpinner];
+
+        mStatusLabel = [[UILabel alloc] init];
+        [mStatusLabel setFont:[UIFont fontWithName:@"MyriadApple-Bold" size:18.0f]];
+        [mStatusLabel setShadowColor:[UIColor whiteColor]];
+        [mStatusLabel setShadowOffset:CGSizeMake(0.0, 1.0)];
+        [mStatusLabel setTextColor:[UIColor colorWithWhite:0.37f alpha:1.0f]];
+        [mStatusLabel setTextAlignment:NSTextAlignmentCenter];
+        [mStatusLabel setBackgroundColor:[UIColor clearColor]];
+        [mStatusLabel setFrame:CGRectMake(0.0f, 0.0f, self.view.frame.size.width*0.5, 25.0f)];
+        [mStatusLabel setCenter:CGPointMake(mSpinner.center.x, mSpinner.center.y+25.0f)];
+
+        [mStatusLabel setText:@"Loading"];
+        [self.view addSubview:mStatusLabel];
+        [mSpinner startAnimating];
     }
     return self;
 }
@@ -78,6 +96,16 @@
     
     if ([mFeaturedCarousel count] != [[mCatalog getProductCategoryWithID:1] count]) {
         [self setupFeaturedCatalog:[mCatalog getProductCategoryWithID:1]];
+    }
+
+    if ([mSpinner isAnimating] && [[mCatalog getVendors] count] == 0 && [[mCatalog getProductCategories] count] == 0) {
+        [mSpinner stopAnimating];
+        [mSpinner removeFromSuperview];
+        mStatusLabel.text = @"Connection Failed.";
+    } else if ([mSpinner isAnimating]) {
+        [mSpinner stopAnimating];
+        [mSpinner removeFromSuperview];
+        [mStatusLabel removeFromSuperview];
     }
 }
 
