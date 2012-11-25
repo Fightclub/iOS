@@ -210,6 +210,7 @@ typedef enum {
 }
 
 - (void)connection:(FCConnection *)connection failedWithError:(NSError *)error {
+    NSLog(@"Catalog connection failed with error: %@", error);
     if (CFDictionaryContainsKey(mActiveConnections, (__bridge const void *)connection))
         CFDictionaryRemoveValue(mActiveConnections, (__bridge const void *)connection);
     if (![self updating] && mDelegate) {

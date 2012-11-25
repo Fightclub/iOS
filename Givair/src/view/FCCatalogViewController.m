@@ -23,7 +23,7 @@
         self.title = @"Gifts";
         self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"giftsmall.png"]];
         mCatalog = [[FCCatalog alloc] initWithDelegate:self];
-        [mCatalog downloadProductCategoryWithID:2];
+        [mCatalog downloadProductCategoryWithID:1];
         
         mFeaturedCarousel = [[FCCarousel alloc] initWithStyle:FCCarouselStyleBanner];
         [mFeaturedCarousel resize];
@@ -37,8 +37,8 @@
 }
 
 - (void)catalogFinishedUpdating {
-    if ([mFeaturedCarousel count] != [mCatalog getProductCategoryWithID:2].count) {
-        [self setupFeaturedCatalog:[mCatalog getProductCategoryWithID:2]];
+    if ([mFeaturedCarousel count] != [[mCatalog getProductCategoryWithID:1] count]) {
+        [self setupFeaturedCatalog:[mCatalog getProductCategoryWithID:1]];
     }
 }
 
