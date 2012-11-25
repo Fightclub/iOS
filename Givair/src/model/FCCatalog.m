@@ -55,7 +55,7 @@ typedef enum {
 
 - (void)downloadCatalog {
     FCConnection * conn = [AppDelegate.network dataAtURL:[NSURL URLWithString:@"catalog/a"
-                                                                relativeToURL:[NSURL URLWithString:@"http://fight-club-beta.herokuapp.com"]] delegate:self];
+                                                                relativeToURL:[NSURL URLWithString:@"http://fight-club-alpha.herokuapp.com"]] delegate:self];
     CFDictionaryAddValue(mActiveConnections,
                          (__bridge const void *)conn,
                          (__bridge const void *)[NSString stringWithFormat:@"%i",kFCCatalogNetworkTaskCatalogDownload]);
@@ -64,7 +64,7 @@ typedef enum {
 
 - (void)downloadProductWithID:(int)ID {
     FCConnection * conn = [AppDelegate.network dataAtURL:[NSURL URLWithString:[NSString stringWithFormat:@"catalog/a/product?id=%i", ID]
-                                                                relativeToURL:[NSURL URLWithString:@"http://fight-club-beta.herokuapp.com"]] delegate:self];
+                                                                relativeToURL:[NSURL URLWithString:@"http://fight-club-alpha.herokuapp.com"]] delegate:self];
     CFDictionaryAddValue(mActiveConnections,
                          (__bridge const void *)conn,
                          (__bridge const void *)[NSString stringWithFormat:@"%i",kFCCatalogNetworkTaskProductDownload]);
@@ -73,7 +73,7 @@ typedef enum {
 
 - (void)downloadProductCategoryWithID:(int)ID {
     FCConnection * conn = [AppDelegate.network dataAtURL:[NSURL URLWithString:[NSString stringWithFormat:@"catalog/a/product/category?id=%i", ID]
-                                                                relativeToURL:[NSURL URLWithString:@"http://fight-club-beta.herokuapp.com"]] delegate:self];
+                                                                relativeToURL:[NSURL URLWithString:@"http://fight-club-alpha.herokuapp.com"]] delegate:self];
     CFDictionaryAddValue(mActiveConnections,
                          (__bridge const void *)conn,
                          (__bridge const void *)[NSString stringWithFormat:@"%i",kFCCatalogNetworkTaskProductCategoryDownload]);
