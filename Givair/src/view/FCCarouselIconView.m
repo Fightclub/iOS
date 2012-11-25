@@ -25,6 +25,7 @@
         FCImageView * iconView = [[FCImageView alloc] initWithFCImage:[mObject getIcon]
                                                               inFrame:CGRectMake((CAROUSEL_ICON_WIDTH-ICON_VIEW_WIDTH)/2, 0.0f,
                                                                                  ICON_VIEW_WIDTH, ICON_VIEW_HEIGHT)];
+        [iconView setUserInteractionEnabled:NO];
         iconView.layer.cornerRadius = 8.0f;
         iconView.layer.masksToBounds = YES;
         iconView.layer.borderColor = [UIColor lightGrayColor].CGColor;

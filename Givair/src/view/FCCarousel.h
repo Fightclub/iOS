@@ -8,10 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+#import "FCCarouselObject.h"
+
 typedef enum {
     FCCarouselStyleBanner,
     FCCarouselStyleIcons
 } FCCarouselStyle;
+
+@protocol FCCarouselDelegate
+
+- (void)didSelectCarouselObject:(id<FCCarouselObject>)object;
+
+@end
 
 @interface FCCarousel : UIView <UIScrollViewDelegate> {
     NSArray * mObjects;
@@ -22,7 +30,10 @@ typedef enum {
 
     UILabel * mTitleLabel;
     int mCurrentIndex;
+    id<FCCarouselDelegate> mDelegate;
 }
+
+@property (nonatomic) id<FCCarouselDelegate> delegate;
 
 - (id)initWithStyle:(FCCarouselStyle)style;
 - (id)initWithStyle:(FCCarouselStyle)style andObjects:(NSArray*)objects;

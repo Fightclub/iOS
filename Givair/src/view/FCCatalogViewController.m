@@ -26,6 +26,7 @@
         [mCatalog downloadProductCategoryWithID:1];
         
         mFeaturedCarousel = [[FCCarousel alloc] initWithStyle:FCCarouselStyleBanner];
+        mFeaturedCarousel.delegate = self;
         [mFeaturedCarousel resize];
         [self.view addSubview:mFeaturedCarousel];
     }
@@ -40,6 +41,10 @@
     if ([mFeaturedCarousel count] != [[mCatalog getProductCategoryWithID:1] count]) {
         [self setupFeaturedCatalog:[mCatalog getProductCategoryWithID:1]];
     }
+}
+
+- (void)didSelectCarouselObject:(id<FCCarouselObject>)object {
+
 }
 
 - (void)viewDidLoad
