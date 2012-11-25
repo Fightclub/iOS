@@ -14,6 +14,8 @@
 @interface FCCatalogViewController : UIViewController <FCCatalogDelegate> {
     FCCatalog * mCatalog;
     FCCarousel * mFeaturedCarousel;
+    FCCarousel * mCategoryCarousel;
+    FCCarousel * mVendorCarousel;
 }
 
 @end
