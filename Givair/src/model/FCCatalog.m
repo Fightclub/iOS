@@ -118,7 +118,8 @@ typedef enum {
     }
 }
 
-- (void)downloadedProductInfo:(NSDictionary *)info {
+- (FCProduct *)downloadedProductInfo:(NSDictionary *)info {
+    FCProduct * newProduct;
     if (![self getProductWithID:[[info objectForKey:@"id"] intValue]]) {
         NSDictionary * vendorInfo = [info objectForKey:@"vendor"];
         NSArray * categoryInfos = [info objectForKey:@"categories"];
@@ -130,7 +131,7 @@ typedef enum {
                                                           iconImage:[NSURL URLWithString:[vendorInfo objectForKey:@"icon"]]];
                 [self addVendor:newVendor];
             }
-            FCProduct * newProduct = [[FCProduct alloc] initWithID:[[info objectForKey:@"id"] intValue]
+            newProduct = [[FCProduct alloc] initWithID:[[info objectForKey:@"id"] intValue]
                                                              price:[[info objectForKey:@"price"] floatValue]
                                                               name:[info objectForKey:@"name"]
                                                        description:[info objectForKey:@"description"]
@@ -151,6 +152,7 @@ typedef enum {
             }
         }
     }
+    return newProduct;
 }
 
 - (void)downloadedProductCategoryInfo:(NSDictionary *)info {
@@ -164,7 +166,10 @@ typedef enum {
         }
         NSArray * productInfos = [info objectForKey:@"products"];
         for (NSDictionary * productInfo in productInfos) {
-            [self downloadedProductInfo:productInfo];
+            FCProduct * product = [self downloadedProductInfo:productInfo];
+            if (product) {
+                [category addProduct:product];
+            }
         }
     }
 }
