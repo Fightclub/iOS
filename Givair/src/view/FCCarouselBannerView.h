@@ -17,6 +17,8 @@
     id <FCCarouselObject> mObject;
 }
 
+@property (nonatomic, readonly) id<FCCarouselObject> carouselObject;
+
 - (id)initWithCarouselObject:(id<FCCarouselObject>)object;
 
 @end

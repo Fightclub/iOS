@@ -14,6 +14,8 @@
 
 @implementation FCCarouselBannerView
 
+@synthesize carouselObject = mObject;
+
 - (id)initWithCarouselObject:(id<FCCarouselObject>)object {
     self = [super init];
     if (self) {

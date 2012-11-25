@@ -98,13 +98,13 @@
         if (mStyle == FCCarouselStyleBanner) {
             FCCarouselBannerView * banner = [[FCCarouselBannerView alloc] initWithCarouselObject:object];
             if (mDelegate)
-                [banner addTarget:mDelegate action:@selector(didSelectCarouselObject:) forControlEvents:UIControlEventTouchUpInside];
+                [banner addTarget:mDelegate action:@selector(didSelectCarouselItem:) forControlEvents:UIControlEventTouchUpInside];
             [constructedViews addObject:banner];
             [self addCarouselView:banner atIndex:i];
         } else if (mStyle == FCCarouselStyleIcons) {
             FCCarouselIconView * icon = [[FCCarouselIconView alloc] initWithCarouselObject:object];
             if (mDelegate)
-                [icon addTarget:mDelegate action:@selector(didSelectCarouselObject:) forControlEvents:UIControlEventTouchUpInside];
+                [icon addTarget:mDelegate action:@selector(didSelectCarouselItem:) forControlEvents:UIControlEventTouchUpInside];
             [constructedViews addObject:icon];
             [self addCarouselView:icon atIndex:i];
         }

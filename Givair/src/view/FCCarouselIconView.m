@@ -18,6 +18,8 @@
 
 @implementation FCCarouselIconView
 
+@synthesize carouselObject = mObject;
+
 - (id)initWithCarouselObject:(id<FCCarouselObject>)object {
     self = [super initWithFrame:CGRectMake(0.0, 0.0, CAROUSEL_ICON_WIDTH, CAROUSEL_ICON_HEIGHT)];
     if (self) {

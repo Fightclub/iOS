@@ -17,7 +17,7 @@ typedef enum {
 
 @protocol FCCarouselDelegate
 
-- (void)didSelectCarouselObject:(id<FCCarouselObject>)object;
+- (void)didSelectCarouselItem:(id)item;
 
 @end
 
@@ -33,7 +33,7 @@ typedef enum {
     id<FCCarouselDelegate> mDelegate;
 }
 
-@property (nonatomic) id<FCCarouselDelegate> delegate;
+@property (nonatomic) id delegate;
 
 - (id)initWithStyle:(FCCarouselStyle)style;
 - (id)initWithStyle:(FCCarouselStyle)style andObjects:(NSArray*)objects;
