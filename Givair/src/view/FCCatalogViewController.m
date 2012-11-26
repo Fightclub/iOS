@@ -13,6 +13,8 @@
 #import "FCProductCategory.h"
 #import "FCVendor.h"
 
+#import "FCProductViewController.h"
+
 @interface FCCatalogViewController ()
 
 @end
@@ -118,7 +120,7 @@
     UIViewController * newView;
     if ([object isKindOfClass:[FCProduct class]]) {
         FCProduct * product = (FCProduct *)object;
-        NSLog(@"Selected product %@", product.name);
+        newView = [[FCProductViewController alloc] initWithProduct:product];
     } else if ([object isKindOfClass:[FCProductCategory class]]) {
         FCProductCategory * category = (FCProductCategory *)object;
         NSLog(@"Selected category %@", category.name);
