@@ -32,10 +32,18 @@ typedef enum {
                                                        0,
                                                        &kCFTypeDictionaryKeyCallBacks,
                                                        &kCFTypeDictionaryValueCallBacks);
-        mDelegate = delegate;
+        mDelegates = [[NSMutableArray alloc] initWithObjects:delegate, nil];
         [self downloadCatalog];
     }
     return self;
+}
+
+- (void)registerForDelegateCallback:(id<FCCatalogDelegate>)delegate {
+    [mDelegates addObject:delegate];
+}
+
+- (void)unregisterForDelegateCallback:(id<FCCatalogDelegate>)delegate {
+    [mDelegates removeObject:delegate];
 }
 
 - (void)addProduct:(FCProduct *)product {
@@ -213,7 +221,9 @@ typedef enum {
         CFDictionaryRemoveValue(mActiveConnections, (__bridge const void *)connection);
     }
     if (![self updating]) {
-        [mDelegate catalogFinishedUpdating];
+        for (id<FCCatalogDelegate> delegate in mDelegates) {
+            [delegate catalogFinishedUpdating];
+        }
     }
 }
 
@@ -221,8 +231,10 @@ typedef enum {
     NSLog(@"Catalog connection failed with error: %@", error);
     if (CFDictionaryContainsKey(mActiveConnections, (__bridge const void *)connection))
         CFDictionaryRemoveValue(mActiveConnections, (__bridge const void *)connection);
-    if (![self updating] && mDelegate) {
-        [mDelegate catalogFinishedUpdating];
+    if (![self updating]) {
+        for (id<FCCatalogDelegate> delegate in mDelegates) {
+            [delegate catalogFinishedUpdating];
+        }
     }
 }
 
