@@ -17,6 +17,23 @@
 #define ICON_VIEW_WIDTH  70.0f
 #define ICON_VIEW_HEIGHT 70.0f
 
+@interface UILabel (FCExtentions)
+- (void)sizeToFitFixedWidth:(CGFloat)fixedWidth;
+@end
+
+@implementation UILabel (FCExtentions)
+
+
+- (void)sizeToFitFixedWidth:(CGFloat)fixedWidth
+{
+    self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, fixedWidth, 0);
+    self.lineBreakMode = NSLineBreakByWordWrapping;
+    self.numberOfLines = 0;
+    [self sizeToFit];
+}
+
+@end
+
 @interface FCProductViewController ()
 
 @end
@@ -48,12 +65,13 @@
         mTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(mIconView.frame.origin.x + mIconView.frame.size.width + 8.0f, mIconView.frame.origin.y,
                                                                 self.view.frame.size.width - (mIconView.frame.origin.x + 16.0f + mIconView.frame.size.width),
                                                                 15.0f)];
-        [mTitleLabel setFont:[UIFont fontWithName:@"MyriadApple-Bold" size:14.0f]];
+        [mTitleLabel setFont:[UIFont fontWithName:@"MyriadApple-Bold" size:17.0f]];
         [mTitleLabel setTextColor:[UIColor colorWithWhite:0.3f alpha:1.0f]];
         [mTitleLabel setBackgroundColor:[UIColor clearColor]];
         [mTitleLabel setShadowColor:[UIColor whiteColor]];
         [mTitleLabel setShadowOffset:CGSizeMake(0.0, 1.0)];
         [mTitleLabel setText:mProduct.name];
+        [mTitleLabel sizeToFitFixedWidth:mTitleLabel.frame.size.width];
         [self.view addSubview:mTitleLabel];
 
         mVendorLabel = [[UILabel alloc] initWithFrame:CGRectMake(mTitleLabel.frame.origin.x, mTitleLabel.frame.origin.y + mTitleLabel.frame.size.height,
