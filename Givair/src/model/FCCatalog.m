@@ -127,8 +127,8 @@ typedef enum {
 }
 
 - (FCProduct *)downloadedProductInfo:(NSDictionary *)info {
-    FCProduct * newProduct;
-    if (![self getProductWithID:[[info objectForKey:@"id"] intValue]]) {
+    FCProduct * newProduct = [self getProductWithID:[[info objectForKey:@"id"] intValue]];
+    if (!newProduct) {
         NSDictionary * vendorInfo = [info objectForKey:@"vendor"];
         NSArray * categoryInfos = [info objectForKey:@"categories"];
         if (vendorInfo) {
