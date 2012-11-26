@@ -90,15 +90,15 @@
 }
 
 - (void)catalogFinishedUpdating {
-    if ([mCategoryCarousel count] != [[mCatalog getProductCategories] count]) {
+    if ([mSpinner isAnimating] && [mCategoryCarousel count] != [[mCatalog getProductCategories] count]) {
         [self setupCategoryCarousel];
     }
 
-    if ([mVendorCarousel count] != [[mCatalog getVendors] count]) {
+    if ([mSpinner isAnimating] && [mVendorCarousel count] != [[mCatalog getVendors] count]) {
         [self setupVendorCarousel];
     }
     
-    if ([mFeaturedCarousel count] != [[mCatalog getProductCategoryWithID:1] count]) {
+    if ([mSpinner isAnimating] && [mFeaturedCarousel count] != [[mCatalog getProductCategoryWithID:1] count]) {
         [self setupFeaturedCatalog:[mCatalog getProductCategoryWithID:1]];
     }
 
