@@ -48,7 +48,10 @@
 
 - (FCConnection *)dataAtURL:(NSURL *)url delegate:(id<FCConnectionDelegate>) delegate{
     NSURLRequest * request = [NSURLRequest requestWithURL:url];
-    FCConnection * conn = [[FCConnection alloc] initWithRequest:request delegate:delegate networkDelegate:self startImmediately:YES];
+    FCConnection * conn = [[FCConnection alloc] initWithRequest:request delegate:delegate networkDelegate:self startImmediately:NO];
+    [conn scheduleInRunLoop:[NSRunLoop currentRunLoop]
+                    forMode:NSRunLoopCommonModes];
+    [conn start];
     CFDictionaryAddValue(mActiveConnections,
                          (__bridge const void *)conn,
                          (__bridge const void *)[NSMutableData data]);
