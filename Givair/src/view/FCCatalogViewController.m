@@ -11,6 +11,7 @@
 #import "FCCarouselIconView.h"
 #import "FCProduct.h"
 #import "FCProductCategory.h"
+#import "FCProductCategoryViewController.h"
 #import "FCVendor.h"
 
 @interface FCCatalogViewController ()
@@ -121,7 +122,9 @@
         NSLog(@"Selected product %@", product.name);
     } else if ([object isKindOfClass:[FCProductCategory class]]) {
         FCProductCategory * category = (FCProductCategory *)object;
-        NSLog(@"Selected category %@", category.name);
+        [mCatalog downloadProductCategoryWithID:category.ID];
+        newView = [[FCProductCategoryViewController alloc] initWithCategory:category];
+        [(FCProductCategoryViewController *)newView setCatalog:mCatalog];
     } else if ([object isKindOfClass:[FCVendor class]]) {
         FCVendor * vendor = (FCVendor *)object;
         NSLog(@"Selected vendor %@", vendor.name);

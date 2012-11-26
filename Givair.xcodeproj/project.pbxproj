@@ -21,6 +21,9 @@
 		0A85E922165CA2FB00983D56 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A85E91B165CA2FB00983D56 /* Default-568h@2x.png */; };
 		0A85E923165CA2FB00983D56 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A85E91C165CA2FB00983D56 /* Default.png */; };
 		0A85E924165CA2FB00983D56 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A85E91D165CA2FB00983D56 /* Default@2x.png */; };
+		0AAA544B166331FB00180E7F /* FCProductCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAA544A166331FB00180E7F /* FCProductCategoryViewController.m */; };
+		0AAA544E1663367800180E7F /* FCIconCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AAA544D1663367800180E7F /* FCIconCell.xib */; };
+		0AAA545116633F1100180E7F /* FCIconCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAA545016633F1100180E7F /* FCIconCell.m */; };
 		0AAD57ED165EBC04009E250F /* blanknavbarbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AAD57EB165EBC04009E250F /* blanknavbarbg.png */; };
 		0AAD57EE165EBC04009E250F /* blanknavbarbg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AAD57EC165EBC04009E250F /* blanknavbarbg@2x.png */; };
 		0AAD57F5165EC946009E250F /* giftsmall.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AAD57F3165EC946009E250F /* giftsmall.png */; };
@@ -66,6 +69,11 @@
 		0A85E929165CA46900983D56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = misc/Info.plist; sourceTree = "<group>"; };
 		0A85E92A165CA46900983D56 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = main.m; path = misc/main.m; sourceTree = "<group>"; };
 		0A85E92B165CA46900983D56 /* Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Prefix.pch; path = misc/Prefix.pch; sourceTree = "<group>"; };
+		0AAA5449166331FB00180E7F /* FCProductCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCProductCategoryViewController.h; sourceTree = "<group>"; };
+		0AAA544A166331FB00180E7F /* FCProductCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCProductCategoryViewController.m; sourceTree = "<group>"; };
+		0AAA544D1663367800180E7F /* FCIconCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FCIconCell.xib; path = gui/FCIconCell.xib; sourceTree = "<group>"; };
+		0AAA544F16633F1100180E7F /* FCIconCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCIconCell.h; sourceTree = "<group>"; };
+		0AAA545016633F1100180E7F /* FCIconCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCIconCell.m; sourceTree = "<group>"; };
 		0AAD57EB165EBC04009E250F /* blanknavbarbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blanknavbarbg.png; path = img/blanknavbarbg.png; sourceTree = "<group>"; };
 		0AAD57EC165EBC04009E250F /* blanknavbarbg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "blanknavbarbg@2x.png"; path = "img/blanknavbarbg@2x.png"; sourceTree = "<group>"; };
 		0AAD57F3165EC946009E250F /* giftsmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = giftsmall.png; path = img/giftsmall.png; sourceTree = "<group>"; };
@@ -207,6 +215,7 @@
 			isa = PBXGroup;
 			children = (
 				0A691E4A165CA4AF00839686 /* InfoPlist.strings */,
+				0AAA544D1663367800180E7F /* FCIconCell.xib */,
 			);
 			name = gui;
 			sourceTree = "<group>";
@@ -273,6 +282,8 @@
 			children = (
 				0AAD585B165EFF6B009E250F /* FCCatalogViewController.h */,
 				0AAD585C165EFF6B009E250F /* FCCatalogViewController.m */,
+				0AAA5449166331FB00180E7F /* FCProductCategoryViewController.h */,
+				0AAA544A166331FB00180E7F /* FCProductCategoryViewController.m */,
 				0AAD585D165EFF75009E250F /* FCGiftNavigationController.h */,
 				0AAD585E165EFF75009E250F /* FCGiftNavigationController.m */,
 			);
@@ -292,6 +303,8 @@
 			isa = PBXGroup;
 			children = (
 				0A30B14216615DB700CE472C /* Carousel */,
+				0AAA544F16633F1100180E7F /* FCIconCell.h */,
+				0AAA545016633F1100180E7F /* FCIconCell.m */,
 				0AAD5862165EFFA3009E250F /* FCImageView.h */,
 				0AAD5863165EFFA3009E250F /* FCImageView.m */,
 			);
@@ -375,6 +388,7 @@
 				0AAD57FE165ED301009E250F /* tabBarPeople@2x.png in Resources */,
 				0AE9B4EC166206A4009D6B5B /* MYRIADAS.TTF in Resources */,
 				0AE9B4EE166208DC009D6B5B /* MYRIADAB.TTF in Resources */,
+				0AAA544E1663367800180E7F /* FCIconCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,6 +414,8 @@
 				0A30B14616615E3800CE472C /* FCCarousel.m in Sources */,
 				0A30B14916615EAD00CE472C /* FCCarouselBannerView.m in Sources */,
 				0A30B14C16615F0200CE472C /* FCCarouselIconView.m in Sources */,
+				0AAA544B166331FB00180E7F /* FCProductCategoryViewController.m in Sources */,
+				0AAA545116633F1100180E7F /* FCIconCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
