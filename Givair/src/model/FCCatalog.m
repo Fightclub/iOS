@@ -126,10 +126,10 @@ typedef enum {
         if (vendorInfo) {
             FCVendor * vendor = [self getVendorWithID:[[vendorInfo objectForKey:@"id"] intValue]];
             if (!vendor) {
-                FCVendor * newVendor = [[FCVendor alloc] initWithID:[[vendorInfo objectForKey:@"id"] intValue]
+                vendor = [[FCVendor alloc] initWithID:[[vendorInfo objectForKey:@"id"] intValue]
                                                                name:[vendorInfo objectForKey:@"name"]
                                                           iconImage:[NSURL URLWithString:[vendorInfo objectForKey:@"icon"]]];
-                [self addVendor:newVendor];
+                [self addVendor:vendor];
             }
             newProduct = [[FCProduct alloc] initWithID:[[info objectForKey:@"id"] intValue]
                                                              price:[[info objectForKey:@"price"] floatValue]
