@@ -27,10 +27,12 @@
 
     CFMutableDictionaryRef mActiveConnections;
 
-    id<FCCatalogDelegate> mDelegate;
+    NSMutableArray * mDelegates;
 }
 
 - (id) initWithDelegate:(id<FCCatalogDelegate>)delegate;
+- (void)registerForDelegateCallback:(id<FCCatalogDelegate>)delegate;
+- (void)unregisterForDelegateCallback:(id<FCCatalogDelegate>)delegate;
 
 - (void)addProduct:(FCProduct *)product;
 - (void)addVendor:(FCVendor *)vendor;
