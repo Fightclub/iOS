@@ -10,6 +10,7 @@
 
 #import "FCIconCell.h"
 #import "FCProduct.h"
+#import "FCProductViewController.h"
 #import "FCProductCategory.h"
 #import "FCVendor.h"
 
@@ -73,9 +74,10 @@
 
 #pragma mark - Table view delegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    FCProduct * product = [mCategory getProducts][indexPath.row];
+    FCProductViewController * newView = [[FCProductViewController alloc] initWithProduct:product];
+    [self.navigationController pushViewController:newView animated:YES];
 }
 
 #pragma mark - FCCatalogDelegate
