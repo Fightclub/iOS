@@ -10,6 +10,7 @@
 
 #import "FCNetwork.h"
 
+#import "FCSplashViewController.h"
 #import "FCGiftNavigationController.h"
 #import "FCPeopleNavigationController.h"
 
@@ -29,6 +30,9 @@
     self.tabBarController.viewControllers = @[viewController1, viewController2];
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
+
+    FCSplashViewController * splash = [[FCSplashViewController alloc] init];
+    [self.tabBarController presentViewController:splash animated:NO completion:NULL];
     return YES;
 }
 

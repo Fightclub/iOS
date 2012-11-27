@@ -43,6 +43,10 @@
 		0AAD588D165F6510009E250F /* FCVendor.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAD588C165F6510009E250F /* FCVendor.m */; };
 		0AAD58B1165F69A3009E250F /* FCCatalog.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAD58B0165F69A3009E250F /* FCCatalog.m */; };
 		0AAD58B516603839009E250F /* FCProductCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAD58B416603839009E250F /* FCProductCategory.m */; };
+		0ADF459C1664BA4200E0C0FA /* FCSplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ADF459B1664BA4200E0C0FA /* FCSplashViewController.m */; };
+		0ADF45A01664BC2600E0C0FA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0ADF459E1664BC1900E0C0FA /* QuartzCore.framework */; };
+		0ADF45A31664C0C900E0C0FA /* givairlarge.png in Resources */ = {isa = PBXBuildFile; fileRef = 0ADF45A11664C0C900E0C0FA /* givairlarge.png */; };
+		0ADF45A41664C0C900E0C0FA /* givairlarge@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0ADF45A21664C0C900E0C0FA /* givairlarge@2x.png */; };
 		0AE9B4EC166206A4009D6B5B /* MYRIADAS.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 0AE9B4EB166206A4009D6B5B /* MYRIADAS.TTF */; };
 		0AE9B4EE166208DC009D6B5B /* MYRIADAB.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 0AE9B4ED166208DC009D6B5B /* MYRIADAB.TTF */; };
 /* End PBXBuildFile section */
@@ -105,6 +109,11 @@
 		0AAD58B0165F69A3009E250F /* FCCatalog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FCCatalog.m; path = src/model/FCCatalog.m; sourceTree = "<group>"; };
 		0AAD58B316603839009E250F /* FCProductCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FCProductCategory.h; path = src/model/FCProductCategory.h; sourceTree = "<group>"; };
 		0AAD58B416603839009E250F /* FCProductCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FCProductCategory.m; path = src/model/FCProductCategory.m; sourceTree = "<group>"; };
+		0ADF459A1664BA4200E0C0FA /* FCSplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCSplashViewController.h; sourceTree = "<group>"; };
+		0ADF459B1664BA4200E0C0FA /* FCSplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCSplashViewController.m; sourceTree = "<group>"; };
+		0ADF459E1664BC1900E0C0FA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		0ADF45A11664C0C900E0C0FA /* givairlarge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = givairlarge.png; path = img/givairlarge.png; sourceTree = "<group>"; };
+		0ADF45A21664C0C900E0C0FA /* givairlarge@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "givairlarge@2x.png"; path = "img/givairlarge@2x.png"; sourceTree = "<group>"; };
 		0AE9B4EB166206A4009D6B5B /* MYRIADAS.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; name = MYRIADAS.TTF; path = img/MYRIADAS.TTF; sourceTree = "<group>"; };
 		0AE9B4ED166208DC009D6B5B /* MYRIADAB.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; name = MYRIADAB.TTF; path = img/MYRIADAB.TTF; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -114,6 +123,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0ADF45A01664BC2600E0C0FA /* QuartzCore.framework in Frameworks */,
 				0A85E8E7165C9FAC00983D56 /* UIKit.framework in Frameworks */,
 				0A85E8E9165C9FAC00983D56 /* Foundation.framework in Frameworks */,
 				0A85E8EB165C9FAC00983D56 /* CoreGraphics.framework in Frameworks */,
@@ -143,6 +153,8 @@
 				0AAD5835165EF074009E250F /* UIElements */,
 				0AAD5804165ED986009E250F /* Gifts */,
 				0AAD5805165ED999009E250F /* People */,
+				0ADF459A1664BA4200E0C0FA /* FCSplashViewController.h */,
+				0ADF459B1664BA4200E0C0FA /* FCSplashViewController.m */,
 			);
 			name = view;
 			path = src/view;
@@ -196,6 +208,7 @@
 		0A85E8E5165C9FAC00983D56 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0ADF459E1664BC1900E0C0FA /* QuartzCore.framework */,
 				0A85E8E6165C9FAC00983D56 /* UIKit.framework */,
 				0A85E8E8165C9FAC00983D56 /* Foundation.framework */,
 				0A85E8EA165C9FAC00983D56 /* CoreGraphics.framework */,
@@ -226,6 +239,8 @@
 		0A85E918165CA00E00983D56 /* img */ = {
 			isa = PBXGroup;
 			children = (
+				0ADF45A11664C0C900E0C0FA /* givairlarge.png */,
+				0ADF45A21664C0C900E0C0FA /* givairlarge@2x.png */,
 				0AE9B4E91662069D009D6B5B /* Fonts */,
 				0AAD5800165ED46F009E250F /* NavigationBar */,
 				0AAD57FF165ED450009E250F /* TabBar */,
@@ -394,6 +409,8 @@
 				0AE9B4EC166206A4009D6B5B /* MYRIADAS.TTF in Resources */,
 				0AE9B4EE166208DC009D6B5B /* MYRIADAB.TTF in Resources */,
 				0AAA544E1663367800180E7F /* FCIconCell.xib in Resources */,
+				0ADF45A31664C0C900E0C0FA /* givairlarge.png in Resources */,
+				0ADF45A41664C0C900E0C0FA /* givairlarge@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,6 +439,7 @@
 				0AA9A16F1662D9BA0082B941 /* FCProductViewController.m in Sources */,
 				0AAA544B166331FB00180E7F /* FCProductCategoryViewController.m in Sources */,
 				0AAA545116633F1100180E7F /* FCIconCell.m in Sources */,
+				0ADF459C1664BA4200E0C0FA /* FCSplashViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
