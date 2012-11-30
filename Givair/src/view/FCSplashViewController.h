@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FCSplashViewController : UIViewController <UITextFieldDelegate> {
+#import "FCNetwork.h"
+
+@interface FCSplashViewController : UIViewController <UITextFieldDelegate, FCConnectionDelegate> {
     UIScrollView * mContent;
     UIImageView * mLogo;
     UIImageView * mFormBack;
@@ -31,6 +33,9 @@
     UIActivityIndicatorView * mSpinner;
 
     CGSize kbSize;
+
+    FCConnection * mLoginConnection;
+    FCConnection * mRegistrationConnection;
 }
 
 @end

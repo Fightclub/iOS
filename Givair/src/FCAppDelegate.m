@@ -32,7 +32,9 @@
     [self.window makeKeyAndVisible];
 
     FCSplashViewController * splash = [[FCSplashViewController alloc] init];
-    [self.tabBarController presentViewController:splash animated:NO completion:NULL];
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"apikey"]) {
+         [self.tabBarController presentViewController:splash animated:NO completion:NULL];
+    }
     return YES;
 }
 

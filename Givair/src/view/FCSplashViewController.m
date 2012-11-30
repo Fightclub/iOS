@@ -10,10 +10,20 @@
 
 #import "FCSplashViewController.h"
 
+#import "FCAppDelegate.h"
+
 @implementation UIScrollView (FCExtentions)
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     [self.superview touchesBegan:touches withEvent:event];
+}
+
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+    [self.superview touchesMoved:touches withEvent:event];
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    [self.superview touchesEnded:touches withEvent:event];
 }
 
 @end
@@ -86,11 +96,12 @@ typedef enum {
         [mSigninButton addTarget:self action:@selector(presentSigninForm) forControlEvents:UIControlEventTouchUpInside];
 
         mStatusLabel = [[UILabel alloc] init];
-        [mStatusLabel setFont:[UIFont fontWithName:@"MyriadApple-Bold" size:18.0f]];
+        [mStatusLabel setFont:[UIFont fontWithName:@"MyriadApple-Bold" size:14.0f]];
+        [mStatusLabel setNumberOfLines:2];
         [mStatusLabel setTextColor:[UIColor colorWithRed:0.9216f green:0.5765f blue:0.5922f alpha:1.0f]];
         [mStatusLabel setTextAlignment:NSTextAlignmentCenter];
         [mStatusLabel setBackgroundColor:[UIColor clearColor]];
-        [mStatusLabel setFrame:CGRectMake(0.0f, 0.0f, self.view.frame.size.width*0.5, 25.0f)];
+        [mStatusLabel setFrame:CGRectMake(0.0f, 0.0f, self.view.frame.size.width*0.5, 30.0f)];
 
         [mContent addSubview:mSignupButton];
         [mContent addSubview:mSigninButton];
@@ -132,6 +143,8 @@ typedef enum {
 
 - (void) cancelSignupForm {
     mFormState = kFCFormStateSplash;
+    if (mActiveField)
+        [mActiveField resignFirstResponder];
     mStatusLabel.text = @"";
     [self fadeinButtons];
     [UIView beginAnimations:@"cancelSignupForm" context:nil];
@@ -151,6 +164,8 @@ typedef enum {
 
 - (void) cancelSigninForm {
     mFormState = kFCFormStateSplash;
+    if (mActiveField)
+        [mActiveField resignFirstResponder];
     mStatusLabel.text = @"";
     [self fadeinButtons];
     [UIView beginAnimations:@"cancelSigninForm" context:nil];
@@ -167,11 +182,16 @@ typedef enum {
 }
 
 - (void) tryLogin {
+    mStatusLabel.text = @"";
     mSpinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
     mSpinner.center = CGPointMake(mFormBack.center.x, mFormBack.frame.origin.y - mSpinner.frame.size.height - 3.0f);
     [mContent addSubview:mSpinner];
     [mSpinner startAnimating];
     [mLoginButton setEnabled:NO];
+
+    mLoginConnection = [AppDelegate.network dataAtURL:[NSURL URLWithString:
+                                                       [NSString stringWithFormat:@"network/a/user/login?email=%@&password=%@", mEmail.text, mPassword.text]
+                                                             relativeToURL:[NSURL URLWithString:@"https://fight-club-alpha.herokuapp.com"]] delegate:self];
 }
 
 - (void) loginSucceeded {
@@ -184,14 +204,22 @@ typedef enum {
     mStatusLabel.center = mSpinner.center;
     mStatusLabel.text = message;
     [mContent addSubview:mStatusLabel];
+    [mLoginButton setEnabled:YES];
 }
 
 - (void) tryRegister {
+    mStatusLabel.text = @"";
     mSpinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
     mSpinner.center = CGPointMake(mFormBack.center.x, mFormBack.frame.origin.y - mSpinner.frame.size.height - 3.0f);
     [mContent addSubview:mSpinner];
     [mSpinner startAnimating];
     [mRegisterButton setEnabled:NO];
+
+    mRegistrationConnection = [AppDelegate.network dataAtURL:[NSURL URLWithString:
+                                                              [NSString stringWithFormat:@"network/a/user/new?email=%@&first=%@&last=%@&password=%@", mEmail.text, mFirstName.text, mLastName.text, mPassword.text]
+                                                                    relativeToURL:[NSURL URLWithString:@"https://fight-club-alpha.herokuapp.com"]] delegate:self];
+
+
 }
 
 - (void) registrationSucceeded {
@@ -204,6 +232,7 @@ typedef enum {
     mStatusLabel.center = mSpinner.center;
     mStatusLabel.text = message;
     [mContent addSubview:mStatusLabel];
+    [mRegisterButton setEnabled:YES];
 }
 
 - (void) presentSignupForm {
@@ -230,6 +259,8 @@ typedef enum {
 
         mEmail = [[UITextField alloc] initWithFrame:CGRectMake(mFirstName.frame.origin.x, mFirstName.frame.origin.y+mFirstName.frame.size.height,
                                                                mFormBack.frame.size.width, mFirstName.frame.size.height)];
+        [mEmail setAutocapitalizationType:UITextAutocapitalizationTypeNone];
+
 
         CALayer *emailBorder = [CALayer layer];
         emailBorder.frame = CGRectMake(1.0f, 0.0f, mEmail.frame.size.width-2.0f, 1.0f);
@@ -247,6 +278,11 @@ typedef enum {
         passwordBorder.backgroundColor = [UIColor colorWithWhite:0.8f
                                                            alpha:1.0f].CGColor;
         [mPassword.layer addSublayer:passwordBorder];
+
+        mEmail.text = @"";
+        mPassword.text = @"";
+        mFirstName.text = @"";
+        mLastName.text = @"";
 
         mFirstName.delegate = self;
         mLastName.delegate = self;
@@ -346,12 +382,8 @@ typedef enum {
     //if (!mLoginButton) {
         mEmail = [[UITextField alloc] initWithFrame:CGRectMake(mFormBack.frame.origin.x, mFormBack.frame.origin.y,
                                                                mFormBack.frame.size.width, 32.0f)];
+        [mEmail setAutocapitalizationType:UITextAutocapitalizationTypeNone];
 
-        CALayer *emailBorder = [CALayer layer];
-        emailBorder.frame = CGRectMake(1.0f, 0.0f, mEmail.frame.size.width-2.0f, 1.0f);
-        emailBorder.backgroundColor = [UIColor colorWithWhite:0.8f
-                                                        alpha:1.0f].CGColor;
-        [mEmail.layer addSublayer:emailBorder];
         [mEmail setKeyboardType:UIKeyboardTypeEmailAddress];
 
         mPassword = [[UITextField alloc] initWithFrame:CGRectMake(mEmail.frame.origin.x, mEmail.frame.origin.y+mEmail.frame.size.height,
@@ -453,7 +485,7 @@ typedef enum {
     CGRect aRect = self.view.frame;
     aRect.size.height -= kbSize.height;
     if (!CGRectContainsPoint(aRect, CGPointMake(mActiveField.frame.origin.x, mActiveField.frame.origin.y + mActiveField.frame.size.height)) ) {
-        CGPoint scrollPoint = CGPointMake(0.0, mActiveField.frame.origin.y-kbSize.height);
+        CGPoint scrollPoint = CGPointMake(0.0, mActiveField.frame.origin.y-kbSize.height + 96);
         [mContent setContentOffset:scrollPoint animated:YES];
     }
 }
@@ -463,6 +495,43 @@ typedef enum {
     UIEdgeInsets contentInsets = UIEdgeInsetsZero;
     mContent.contentInset = contentInsets;
     mContent.scrollIndicatorInsets = contentInsets;
+}
+
+- (void) connection:(FCConnection *)connection failedWithError:(NSError *)error {
+    if (connection == mLoginConnection) {
+        [self loginFailedWithErrorMessage:@"Connection failed"];
+    } else if (connection == mRegistrationConnection) {
+        [self registrationFailedWithErrorMessage:@"Connection failed"];
+    }
+}
+
+- (void) connection:(FCConnection *)connection finishedDownloadingData:(NSData *)data {
+    NSMutableDictionary * info = [NSJSONSerialization JSONObjectWithData:data
+                                                                 options:NSJSONReadingMutableContainers
+                                                                   error:nil];
+    if (connection == mLoginConnection) {
+        if ([info objectForKey:@"error"]) {
+            [self loginFailedWithErrorMessage:[info objectForKey:@"error"]];
+        } else {
+            [[NSUserDefaults standardUserDefaults] setObject:[info objectForKey:@"apikey"] forKey:@"apikey"];
+            [[NSUserDefaults standardUserDefaults] setObject:[info objectForKey:@"email"] forKey:@"email"];
+            [[NSUserDefaults standardUserDefaults] setObject:[info objectForKey:@"first"] forKey:@"first"];
+            [[NSUserDefaults standardUserDefaults] setObject:[info objectForKey:@"last"] forKey:@"last"];
+            [[NSUserDefaults standardUserDefaults] setInteger:[[info objectForKey:@"id"] integerValue] forKey:@"id"];
+            [self loginSucceeded];
+        }
+    } else if (connection == mRegistrationConnection) {
+        if ([info objectForKey:@"error"]) {
+            [self registrationFailedWithErrorMessage:[info objectForKey:@"error"]];
+        } else {
+            [[NSUserDefaults standardUserDefaults] setObject:[info objectForKey:@"apikey"] forKey:@"apikey"];
+            [[NSUserDefaults standardUserDefaults] setObject:[info objectForKey:@"email"] forKey:@"email"];
+            [[NSUserDefaults standardUserDefaults] setObject:[info objectForKey:@"first"] forKey:@"first"];
+            [[NSUserDefaults standardUserDefaults] setObject:[info objectForKey:@"last"] forKey:@"last"];
+            [[NSUserDefaults standardUserDefaults] setInteger:[[info objectForKey:@"id"] integerValue] forKey:@"id"];
+            [self registrationSucceeded];
+        }
+    }
 }
 
 
