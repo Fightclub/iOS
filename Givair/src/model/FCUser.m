@@ -17,8 +17,17 @@
 @synthesize last = mLast;
 @synthesize birthday = mBirthday;
 
-- (id)initWithID:(int)ID Email:(NSString*)email first:(NSString*)first last:(NSString*)last APIKey:(NSString*)key FBEmail:(NSString*)fbemail {
+- (id) init {
     self = [super init];
+    if (self) {
+        mSentGifts = [[NSMutableDictionary alloc] init];
+        mReceivedGifts = [[NSMutableDictionary alloc] init];
+    }
+    return self;
+}
+
+- (id)initWithID:(int)ID Email:(NSString*)email first:(NSString*)first last:(NSString*)last APIKey:(NSString*)key FBEmail:(NSString*)fbemail {
+    self = [self init];
     if (self) {
         mID = ID;
         mEmail = email;
