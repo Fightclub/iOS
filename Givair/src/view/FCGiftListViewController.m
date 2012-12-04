@@ -9,7 +9,11 @@
 #import "FCGiftListViewController.h"
 
 #import "FCAppDelegate.h"
+#import "FCGift.h"
 #import "FCIconCell.h"
+#import "FCProduct.h"
+#import "FCUser.h"
+#import "FCVendor.h"
 
 @interface FCGiftListViewController ()
 
@@ -24,6 +28,7 @@
         [self.tableView setRowHeight:86.0f];
         mCatalog = AppDelegate.catalog;
         mGraph = AppDelegate.graph;
+        [mGraph downloadGiftsForUserWithKey:[[NSUserDefaults standardUserDefaults] objectForKey:@"apikey"]];
     }
     return self;
 }
@@ -51,7 +56,8 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
+    FCUser * thisUser = [mGraph getUserWithID:[[[NSUserDefaults standardUserDefaults] objectForKey:@"id"] intValue]];
+    return [[thisUser getReceivedGifts] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -63,6 +69,13 @@
         cell = [topLevelObjects objectAtIndex:0];
     }
 
+    FCUser * user = [mGraph getUserWithID:[[[NSUserDefaults standardUserDefaults] objectForKey:@"id"] intValue]];
+    FCGift * gift = [[user getReceivedGifts] objectAtIndex:indexPath.row];
+
+    [cell setTitle:gift.product.name];
+    [cell setSubtitle:gift.product.vendor.name];
+    [cell setIconImage:[gift.product getIcon]];
+    
     return cell;
 }
 
