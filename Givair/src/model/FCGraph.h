@@ -27,6 +27,8 @@
 }
 
 - (id) initWithDelegate:(id<FCGraphDelegate>)delegate;
+- (void)registerForDelegateCallback:(id<FCGraphDelegate>)delegate;
+- (void)unregisterForDelegateCallback:(id<FCGraphDelegate>)delegate;
 
 - (void)downloadUserInfoWithID:(int)ID;
 - (FCUser *)getUserWithID:(int)ID;

@@ -22,7 +22,7 @@ typedef enum {
     kFCGraphNetworkTaskDownloadUserGifts,
 } kFCGraphNetworkTask;
 
-- (id) initWithDelegate:(id<FCGraphDelegate>)delegate {
+- (id) init {
     self = [super init];
     if (self) {
         mGifts = [[NSMutableDictionary alloc] init];
@@ -31,9 +31,25 @@ typedef enum {
                                                        0,
                                                        &kCFTypeDictionaryKeyCallBacks,
                                                        &kCFTypeDictionaryValueCallBacks);
+        mDelegates = [[NSMutableArray alloc] init];
+    }
+    return self;
+}
+
+- (id) initWithDelegate:(id<FCGraphDelegate>)delegate {
+    self = [self init];
+    if (self) {
         mDelegates = [[NSMutableArray alloc] initWithObjects:delegate, nil];
     }
     return self;
+}
+
+- (void)registerForDelegateCallback:(id<FCGraphDelegate>)delegate {
+    [mDelegates addObject:delegate];
+}
+
+- (void)unregisterForDelegateCallback:(id<FCGraphDelegate>)delegate {
+    [mDelegates removeObject:delegate];
 }
 
 - (void)downloadUserInfoWithID:(int)ID {

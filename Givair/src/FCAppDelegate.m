@@ -10,6 +10,7 @@
 
 #import "FCNetwork.h"
 #import "FCCatalog.h"
+#import "FCGraph.h"
 
 #import "FCGiftNavigationController.h"
 #import "FCPeopleNavigationController.h"
@@ -17,11 +18,13 @@
 @implementation FCAppDelegate
 
 @synthesize network = mNetwork;
+@synthesize graph = mGraph;
 @synthesize catalog = mCatalog;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     mNetwork = [[FCNetwork alloc] init];
+    mGraph = [[FCGraph alloc] init];
     mCatalog = [[FCCatalog alloc] init];
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
