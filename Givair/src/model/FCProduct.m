@@ -59,4 +59,8 @@
     mIconImage = image;
 }
 
+- (BOOL)complete {
+    return mName && mDescription && mIconImage && mBannerImage;
+}
+
 @end

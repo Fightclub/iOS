@@ -9,12 +9,17 @@
 #import "FCGraph.h"
 
 #import "FCAppDelegate.h"
+#import "FCCatalog.h"
+#import "FCGift.h"
+#import "FCProduct.h"
 #import "FCUser.h"
+#import "FCVendor.h"
 
 @implementation FCGraph
 
 typedef enum {
     kFCGraphNetworkTaskDownloadUserInfo,
+    kFCGraphNetworkTaskDownloadUserGifts,
 } kFCGraphNetworkTask;
 
 - (id) initWithDelegate:(id<FCGraphDelegate>)delegate {
@@ -65,6 +70,76 @@ typedef enum {
     return [mUsers objectForKey:[NSString stringWithFormat:@"%i", ID]];
 }
 
+- (void)downloadGiftsForUserWithKey:(NSString*)key {
+    FCConnection * conn = [AppDelegate.network dataAtURL:[NSURL URLWithString:[NSString stringWithFormat:@"network/a/user/gifts?apikey=%@", key]
+                                                                relativeToURL:[NSURL URLWithString:@"http://fight-club-alpha.herokuapp.com"]] delegate:self];
+    CFDictionaryAddValue(mActiveConnections,
+                         (__bridge const void *)conn,
+                         (__bridge const void *)[NSString stringWithFormat:@"%i",kFCGraphNetworkTaskDownloadUserGifts]);
+}
+
+- (void)addGift:(FCUser *)newGift {
+    if (![mGifts objectForKey:[NSString stringWithFormat:@"%i", newGift.ID]])
+        [mGifts setValue:newGift forKey:[NSString stringWithFormat:@"%i", newGift.ID]];
+}
+
+- (FCGift *)giftFromListInfo:(NSDictionary *)info {
+    FCGift * newGift = [self getGiftWithID:[[info objectForKey:@"id"] intValue]];
+    if (!newGift) {
+        NSDictionary * productInfo = [info objectForKey:@"product"];
+        NSDictionary * vendorInfo = [productInfo objectForKey:@"vendor"];
+        FCProduct * newProduct = [AppDelegate.catalog getProductWithID:[[productInfo objectForKey:@"id"] intValue]];
+        if (!newProduct) {
+            FCVendor * newVendor = [AppDelegate.catalog getVendorWithID:[[vendorInfo objectForKey:@"id"] intValue]];
+            if (!newVendor) {
+                newVendor = [[FCVendor alloc] initWithID:[[vendorInfo objectForKey:@"id"] intValue]
+                                                    name:[vendorInfo objectForKey:@"name"]
+                                               iconImage:[vendorInfo objectForKey:@"icon"]];
+                [AppDelegate.catalog addVendor:newVendor];
+            }
+            newProduct = [[FCProduct alloc] initWithID:[[productInfo objectForKey:@"id"] intValue]
+                                                 price:0.0f
+                                                  name:[productInfo objectForKey:@"name"]
+                                           description:nil
+                                                   SKU:nil
+                                                vendor:newVendor
+                                             iconImage:[productInfo objectForKey:@"icon"]
+                                           bannerImage:nil];
+            [AppDelegate.catalog addProduct:newProduct];
+        }
+        newGift = [[FCGift alloc] initWithID:[[info objectForKey:@"id"] intValue]
+                                      sender:nil
+                                    receiver:nil
+                                     product:newProduct
+                                      status:kFCGiftStatusCreated
+                                     created:nil
+                                   activated:nil
+                                    redeemed:nil];
+    }
+    return newGift;
+}
+
+- (void)downloadedUserGiftList:(NSDictionary*)info {
+    NSArray * received = [info objectForKey:@"received"];
+    NSArray * sent = [info objectForKey:@"sent"];
+    if (sent && received) {
+        NSMutableArray * sentGifts = [[NSMutableArray alloc] initWithCapacity:[sent count]];
+        NSMutableArray * receivedGifts = [[NSMutableArray alloc] initWithCapacity:[received count]];
+        for (NSDictionary * sentInfo in sent) {
+            FCGift * newGift = [self giftFromListInfo:sentInfo];
+            [sentGifts addObject:newGift];
+        }
+        for (NSDictionary * receivedInfo in received) {
+            FCGift * newGift = [self giftFromListInfo:receivedInfo];
+            [receivedGifts addObject:newGift];
+        }
+    }
+}
+
+- (FCGift *) getGiftWithID:(int)ID {
+    return [mGifts objectForKey:[NSString stringWithFormat:@"%i", ID]];
+}
+
 - (BOOL)updating {
     return CFDictionaryGetCount(mActiveConnections) > 0;
 }
@@ -81,7 +156,9 @@ typedef enum {
             case kFCGraphNetworkTaskDownloadUserInfo:
                 [self downloadedUserInfo:info];
                 break;
-
+            case kFCGraphNetworkTaskDownloadUserGifts:
+                [self downloadedUserGiftList:info];
+                break;
             default:
                 break;
         }

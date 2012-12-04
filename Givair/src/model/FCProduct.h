@@ -42,4 +42,6 @@
 - (void)setBannerImage:(FCImage*)image;
 - (void)setIconImage:(FCImage*)image;
 
+- (BOOL)complete;
+
 @end

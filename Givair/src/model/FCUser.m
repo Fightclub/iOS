@@ -8,6 +8,8 @@
 
 #import "FCUser.h"
 
+#import "FCGift.h"
+
 @implementation FCUser
 
 @synthesize ID = mID;
@@ -26,6 +28,26 @@
         mFBEmail = fbemail;
     }
     return self;
+}
+
+- (void)addSentGift:(FCGift*)gift {
+    if (![mSentGifts objectForKey:[NSString stringWithFormat:@"%i", gift.ID]]) {
+        [mSentGifts setObject:gift forKey:[NSString stringWithFormat:@"%i", gift.ID]];
+    }
+}
+
+- (void)addReceivedGift:(FCGift*)gift {
+    if (![mReceivedGifts objectForKey:[NSString stringWithFormat:@"%i", gift.ID]]) {
+        [mReceivedGifts setObject:gift forKey:[NSString stringWithFormat:@"%i", gift.ID]];
+    }
+}
+ 
+- (NSArray*)getSentGifts {
+    return [mSentGifts allValues];
+}
+
+- (NSArray*)getReceivedGifts {
+    return [mReceivedGifts allValues];
 }
 
 @end

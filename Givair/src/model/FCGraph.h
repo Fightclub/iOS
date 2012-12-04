@@ -30,6 +30,8 @@
 
 - (void)downloadUserInfoWithID:(int)ID;
 - (FCUser *)getUserWithID:(int)ID;
+- (void)downloadGiftsForUserWithKey:(NSString*)key;
+
 - (BOOL)updating;
 
 @end

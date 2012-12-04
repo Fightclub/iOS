@@ -12,6 +12,7 @@
 		0A09CD48165CAB7C006DBF25 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A09CD46165CAB7C006DBF25 /* Icon@2x.png */; };
 		0A1A5F49166C752D0069017A /* FCUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A5F48166C752D0069017A /* FCUser.m */; };
 		0A1A5F4D166D89E80069017A /* FCGraph.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A5F4C166D89E80069017A /* FCGraph.m */; };
+		0A1A5F66166DDDEB0069017A /* FCGift.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A5F65166DDDEB0069017A /* FCGift.m */; };
 		0A30B14616615E3800CE472C /* FCCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A30B14516615E3800CE472C /* FCCarousel.m */; };
 		0A30B14916615EAD00CE472C /* FCCarouselBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A30B14816615EAD00CE472C /* FCCarouselBannerView.m */; };
 		0A30B14C16615F0200CE472C /* FCCarouselIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A30B14B16615F0200CE472C /* FCCarouselIconView.m */; };
@@ -56,6 +57,8 @@
 		0A1A5F48166C752D0069017A /* FCUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FCUser.m; path = src/model/FCUser.m; sourceTree = "<group>"; };
 		0A1A5F4B166D89E80069017A /* FCGraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FCGraph.h; path = src/model/FCGraph.h; sourceTree = "<group>"; };
 		0A1A5F4C166D89E80069017A /* FCGraph.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FCGraph.m; path = src/model/FCGraph.m; sourceTree = "<group>"; };
+		0A1A5F64166DDDEB0069017A /* FCGift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FCGift.h; path = src/model/FCGift.h; sourceTree = "<group>"; };
+		0A1A5F65166DDDEB0069017A /* FCGift.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FCGift.m; path = src/model/FCGift.m; sourceTree = "<group>"; };
 		0A30B14416615E3800CE472C /* FCCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCCarousel.h; sourceTree = "<group>"; };
 		0A30B14516615E3800CE472C /* FCCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCCarousel.m; sourceTree = "<group>"; };
 		0A30B14716615EAD00CE472C /* FCCarouselBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCCarouselBannerView.h; sourceTree = "<group>"; };
@@ -173,6 +176,8 @@
 				0A1A5F48166C752D0069017A /* FCUser.m */,
 				0A1A5F4B166D89E80069017A /* FCGraph.h */,
 				0A1A5F4C166D89E80069017A /* FCGraph.m */,
+				0A1A5F64166DDDEB0069017A /* FCGift.h */,
+				0A1A5F65166DDDEB0069017A /* FCGift.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -434,6 +439,7 @@
 				0AAA545116633F1100180E7F /* FCIconCell.m in Sources */,
 				0A1A5F49166C752D0069017A /* FCUser.m in Sources */,
 				0A1A5F4D166D89E80069017A /* FCGraph.m in Sources */,
+				0A1A5F66166DDDEB0069017A /* FCGift.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

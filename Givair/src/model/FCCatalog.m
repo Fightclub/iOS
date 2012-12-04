@@ -9,6 +9,7 @@
 #import "FCCatalog.h"
 
 #import "FCAppDelegate.h"
+#import "FCImage.h"
 #import "FCProduct.h"
 #import "FCProductCategory.h"
 #import "FCVendor.h"
@@ -168,6 +169,20 @@ typedef enum {
                 [category addProduct:newProduct];
             }
         }
+    } else if (![newProduct complete]) {
+        NSArray * categoryInfos = [info objectForKey:@"categories"];
+        for (NSDictionary * categoryInfo in categoryInfos) {
+            FCProductCategory * category = [self getProductCategoryWithID:[[categoryInfo objectForKey:@"id"] intValue]];
+            if (! category) {
+                category = [[FCProductCategory alloc] initWithID:[[categoryInfo objectForKey:@"id"] intValue]
+                                                            name:[categoryInfo objectForKey:@"name"]
+                                                       iconImage:[NSURL URLWithString:[categoryInfo objectForKey:@"icon"]]];
+                [self addProductCategory:category];
+            }
+            [category addProduct:newProduct];
+        }
+        [newProduct setIconImage:[[FCImage alloc] initWithURL:[NSURL URLWithString:[info objectForKey:@"icon"]]]];
+        [newProduct setBannerImage:[[FCImage alloc] initWithURL:[NSURL URLWithString:[info objectForKey:@"banner"]]]];
     }
     return newProduct;
 }
