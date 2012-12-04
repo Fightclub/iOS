@@ -16,6 +16,7 @@
 @implementation FCAppDelegate
 
 @synthesize network = mNetwork;
+@synthesize catalog = mCatalog;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {

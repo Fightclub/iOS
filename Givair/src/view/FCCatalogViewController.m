@@ -8,6 +8,7 @@
 
 #import "FCCatalogViewController.h"
 
+#import "FCAppDelegate.h"
 #import "FCCarouselIconView.h"
 #import "FCProduct.h"
 #import "FCProductCategory.h"
@@ -30,7 +31,10 @@
         self.view = content;
 
         [self.view setBackgroundColor:[UIColor colorWithWhite:0.9216f alpha:1.0f]];
-        mCatalog = [[FCCatalog alloc] initWithDelegate:self];
+        if (!AppDelegate.catalog) {
+            AppDelegate.catalog = [[FCCatalog alloc] initWithDelegate:self];
+        }
+        mCatalog = AppDelegate.catalog;
         [mCatalog downloadProductCategoryWithID:1];
         
         mFeaturedCarousel = [[FCCarousel alloc] initWithStyle:FCCarouselStyleBanner];
