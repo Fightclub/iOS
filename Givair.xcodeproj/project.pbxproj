@@ -13,6 +13,10 @@
 		0A1A5F49166C752D0069017A /* FCUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A5F48166C752D0069017A /* FCUser.m */; };
 		0A1A5F4D166D89E80069017A /* FCGraph.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A5F4C166D89E80069017A /* FCGraph.m */; };
 		0A1A5F66166DDDEB0069017A /* FCGift.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A5F65166DDDEB0069017A /* FCGift.m */; };
+		0A24C4BF16675B46001AE0F1 /* bluebutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A24C4BB16675B46001AE0F1 /* bluebutton.png */; };
+		0A24C4C016675B46001AE0F1 /* bluebutton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A24C4BC16675B46001AE0F1 /* bluebutton@2x.png */; };
+		0A24C4C116675B46001AE0F1 /* graybutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A24C4BD16675B46001AE0F1 /* graybutton.png */; };
+		0A24C4C216675B46001AE0F1 /* graybutton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A24C4BE16675B46001AE0F1 /* graybutton@2x.png */; };
 		0A30B14616615E3800CE472C /* FCCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A30B14516615E3800CE472C /* FCCarousel.m */; };
 		0A30B14916615EAD00CE472C /* FCCarouselBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A30B14816615EAD00CE472C /* FCCarouselBannerView.m */; };
 		0A30B14C16615F0200CE472C /* FCCarouselIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A30B14B16615F0200CE472C /* FCCarouselIconView.m */; };
@@ -47,6 +51,12 @@
 		0AAD588D165F6510009E250F /* FCVendor.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAD588C165F6510009E250F /* FCVendor.m */; };
 		0AAD58B1165F69A3009E250F /* FCCatalog.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAD58B0165F69A3009E250F /* FCCatalog.m */; };
 		0AAD58B516603839009E250F /* FCProductCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAD58B416603839009E250F /* FCProductCategory.m */; };
+		0AC820FD16674B4C0011F5AB /* textboxbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AC820FB16674B4C0011F5AB /* textboxbg.png */; };
+		0AC820FE16674B4C0011F5AB /* textboxbg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AC820FC16674B4C0011F5AB /* textboxbg@2x.png */; };
+		0ADF459C1664BA4200E0C0FA /* FCSplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ADF459B1664BA4200E0C0FA /* FCSplashViewController.m */; };
+		0ADF45A01664BC2600E0C0FA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0ADF459E1664BC1900E0C0FA /* QuartzCore.framework */; };
+		0ADF45A31664C0C900E0C0FA /* givairlarge.png in Resources */ = {isa = PBXBuildFile; fileRef = 0ADF45A11664C0C900E0C0FA /* givairlarge.png */; };
+		0ADF45A41664C0C900E0C0FA /* givairlarge@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0ADF45A21664C0C900E0C0FA /* givairlarge@2x.png */; };
 		0AE9B4EC166206A4009D6B5B /* MYRIADAS.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 0AE9B4EB166206A4009D6B5B /* MYRIADAS.TTF */; };
 		0AE9B4EE166208DC009D6B5B /* MYRIADAB.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 0AE9B4ED166208DC009D6B5B /* MYRIADAB.TTF */; };
 /* End PBXBuildFile section */
@@ -60,6 +70,10 @@
 		0A1A5F4C166D89E80069017A /* FCGraph.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FCGraph.m; path = src/model/FCGraph.m; sourceTree = "<group>"; };
 		0A1A5F64166DDDEB0069017A /* FCGift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FCGift.h; path = src/model/FCGift.h; sourceTree = "<group>"; };
 		0A1A5F65166DDDEB0069017A /* FCGift.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FCGift.m; path = src/model/FCGift.m; sourceTree = "<group>"; };
+		0A24C4BB16675B46001AE0F1 /* bluebutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bluebutton.png; path = img/bluebutton.png; sourceTree = "<group>"; };
+		0A24C4BC16675B46001AE0F1 /* bluebutton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bluebutton@2x.png"; path = "img/bluebutton@2x.png"; sourceTree = "<group>"; };
+		0A24C4BD16675B46001AE0F1 /* graybutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = graybutton.png; path = img/graybutton.png; sourceTree = "<group>"; };
+		0A24C4BE16675B46001AE0F1 /* graybutton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "graybutton@2x.png"; path = "img/graybutton@2x.png"; sourceTree = "<group>"; };
 		0A30B14416615E3800CE472C /* FCCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCCarousel.h; sourceTree = "<group>"; };
 		0A30B14516615E3800CE472C /* FCCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCCarousel.m; sourceTree = "<group>"; };
 		0A30B14716615EAD00CE472C /* FCCarouselBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCCarouselBannerView.h; sourceTree = "<group>"; };
@@ -117,6 +131,13 @@
 		0AAD58B0165F69A3009E250F /* FCCatalog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FCCatalog.m; path = src/model/FCCatalog.m; sourceTree = "<group>"; };
 		0AAD58B316603839009E250F /* FCProductCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FCProductCategory.h; path = src/model/FCProductCategory.h; sourceTree = "<group>"; };
 		0AAD58B416603839009E250F /* FCProductCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FCProductCategory.m; path = src/model/FCProductCategory.m; sourceTree = "<group>"; };
+		0AC820FB16674B4C0011F5AB /* textboxbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = textboxbg.png; path = img/textboxbg.png; sourceTree = "<group>"; };
+		0AC820FC16674B4C0011F5AB /* textboxbg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "textboxbg@2x.png"; path = "img/textboxbg@2x.png"; sourceTree = "<group>"; };
+		0ADF459A1664BA4200E0C0FA /* FCSplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCSplashViewController.h; sourceTree = "<group>"; };
+		0ADF459B1664BA4200E0C0FA /* FCSplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCSplashViewController.m; sourceTree = "<group>"; };
+		0ADF459E1664BC1900E0C0FA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		0ADF45A11664C0C900E0C0FA /* givairlarge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = givairlarge.png; path = img/givairlarge.png; sourceTree = "<group>"; };
+		0ADF45A21664C0C900E0C0FA /* givairlarge@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "givairlarge@2x.png"; path = "img/givairlarge@2x.png"; sourceTree = "<group>"; };
 		0AE9B4EB166206A4009D6B5B /* MYRIADAS.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; name = MYRIADAS.TTF; path = img/MYRIADAS.TTF; sourceTree = "<group>"; };
 		0AE9B4ED166208DC009D6B5B /* MYRIADAB.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; name = MYRIADAB.TTF; path = img/MYRIADAB.TTF; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -126,6 +147,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0ADF45A01664BC2600E0C0FA /* QuartzCore.framework in Frameworks */,
 				0A85E8E7165C9FAC00983D56 /* UIKit.framework in Frameworks */,
 				0A85E8E9165C9FAC00983D56 /* Foundation.framework in Frameworks */,
 				0A85E8EB165C9FAC00983D56 /* CoreGraphics.framework in Frameworks */,
@@ -155,6 +177,8 @@
 				0AAD5835165EF074009E250F /* UIElements */,
 				0AAD5804165ED986009E250F /* Gifts */,
 				0AAD5805165ED999009E250F /* People */,
+				0ADF459A1664BA4200E0C0FA /* FCSplashViewController.h */,
+				0ADF459B1664BA4200E0C0FA /* FCSplashViewController.m */,
 			);
 			name = view;
 			path = src/view;
@@ -214,6 +238,7 @@
 		0A85E8E5165C9FAC00983D56 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0ADF459E1664BC1900E0C0FA /* QuartzCore.framework */,
 				0A85E8E6165C9FAC00983D56 /* UIKit.framework */,
 				0A85E8E8165C9FAC00983D56 /* Foundation.framework */,
 				0A85E8EA165C9FAC00983D56 /* CoreGraphics.framework */,
@@ -244,6 +269,9 @@
 		0A85E918165CA00E00983D56 /* img */ = {
 			isa = PBXGroup;
 			children = (
+				0ADF45A11664C0C900E0C0FA /* givairlarge.png */,
+				0ADF45A21664C0C900E0C0FA /* givairlarge@2x.png */,
+				0AC820F916674B410011F5AB /* Forms */,
 				0AE9B4E91662069D009D6B5B /* Fonts */,
 				0AAD5800165ED46F009E250F /* NavigationBar */,
 				0AAD57FF165ED450009E250F /* TabBar */,
@@ -336,6 +364,19 @@
 			name = UIElements;
 			sourceTree = "<group>";
 		};
+		0AC820F916674B410011F5AB /* Forms */ = {
+			isa = PBXGroup;
+			children = (
+				0A24C4BB16675B46001AE0F1 /* bluebutton.png */,
+				0A24C4BC16675B46001AE0F1 /* bluebutton@2x.png */,
+				0A24C4BD16675B46001AE0F1 /* graybutton.png */,
+				0A24C4BE16675B46001AE0F1 /* graybutton@2x.png */,
+				0AC820FB16674B4C0011F5AB /* textboxbg.png */,
+				0AC820FC16674B4C0011F5AB /* textboxbg@2x.png */,
+			);
+			name = Forms;
+			sourceTree = "<group>";
+		};
 		0AE9B4E91662069D009D6B5B /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -414,6 +455,14 @@
 				0AE9B4EC166206A4009D6B5B /* MYRIADAS.TTF in Resources */,
 				0AE9B4EE166208DC009D6B5B /* MYRIADAB.TTF in Resources */,
 				0AAA544E1663367800180E7F /* FCIconCell.xib in Resources */,
+				0ADF45A31664C0C900E0C0FA /* givairlarge.png in Resources */,
+				0ADF45A41664C0C900E0C0FA /* givairlarge@2x.png in Resources */,
+				0AC820FD16674B4C0011F5AB /* textboxbg.png in Resources */,
+				0AC820FE16674B4C0011F5AB /* textboxbg@2x.png in Resources */,
+				0A24C4BF16675B46001AE0F1 /* bluebutton.png in Resources */,
+				0A24C4C016675B46001AE0F1 /* bluebutton@2x.png in Resources */,
+				0A24C4C116675B46001AE0F1 /* graybutton.png in Resources */,
+				0A24C4C216675B46001AE0F1 /* graybutton@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,6 +495,7 @@
 				0A1A5F4D166D89E80069017A /* FCGraph.m in Sources */,
 				0A1A5F66166DDDEB0069017A /* FCGift.m in Sources */,
 				0A362A0F166EAD9500552368 /* FCGiftListViewController.m in Sources */,
+				0ADF459C1664BA4200E0C0FA /* FCSplashViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,6 +12,7 @@
 #import "FCCatalog.h"
 #import "FCGraph.h"
 
+#import "FCSplashViewController.h"
 #import "FCGiftNavigationController.h"
 #import "FCPeopleNavigationController.h"
 
@@ -35,6 +36,11 @@
     self.tabBarController.viewControllers = @[viewController1, viewController2];
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
+
+    FCSplashViewController * splash = [[FCSplashViewController alloc] init];
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"apikey"]) {
+         [self.tabBarController presentViewController:splash animated:NO completion:NULL];
+    }
     return YES;
 }
 
