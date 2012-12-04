@@ -94,7 +94,7 @@ typedef enum {
                          (__bridge const void *)[NSString stringWithFormat:@"%i",kFCGraphNetworkTaskDownloadUserGifts]);
 }
 
-- (void)addGift:(FCUser *)newGift {
+- (void)addGift:(FCGift *)newGift {
     if (![mGifts objectForKey:[NSString stringWithFormat:@"%i", newGift.ID]])
         [mGifts setValue:newGift forKey:[NSString stringWithFormat:@"%i", newGift.ID]];
 }
@@ -139,15 +139,16 @@ typedef enum {
     NSArray * received = [info objectForKey:@"received"];
     NSArray * sent = [info objectForKey:@"sent"];
     if (sent && received) {
-        NSMutableArray * sentGifts = [[NSMutableArray alloc] initWithCapacity:[sent count]];
-        NSMutableArray * receivedGifts = [[NSMutableArray alloc] initWithCapacity:[received count]];
+        FCUser * newUser = [self getUserWithID:[[[NSUserDefaults standardUserDefaults] objectForKey:@"id"] intValue]];
         for (NSDictionary * sentInfo in sent) {
             FCGift * newGift = [self giftFromListInfo:sentInfo];
-            [sentGifts addObject:newGift];
+            [self addGift:newGift];
+            [newUser addSentGift:newGift];
         }
         for (NSDictionary * receivedInfo in received) {
             FCGift * newGift = [self giftFromListInfo:receivedInfo];
-            [receivedGifts addObject:newGift];
+            [self addGift:newGift];
+            [newUser addReceivedGift:newGift];
         }
     }
 }
