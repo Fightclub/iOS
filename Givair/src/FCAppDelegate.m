@@ -16,6 +16,8 @@
 #import "FCGiftNavigationController.h"
 #import "FCPeopleNavigationController.h"
 
+#import "FCUser.h"
+
 @implementation FCAppDelegate
 
 @synthesize network = mNetwork;
@@ -40,6 +42,15 @@
     FCSplashViewController * splash = [[FCSplashViewController alloc] init];
     if (![[NSUserDefaults standardUserDefaults] objectForKey:@"apikey"]) {
          [self.tabBarController presentViewController:splash animated:NO completion:NULL];
+    } else {
+        // Need to add the logged in user to the graph
+        FCUser * loggedInUser = [[FCUser alloc] initWithID:[[NSUserDefaults standardUserDefaults] integerForKey:@"id"]
+                                                     Email:[[NSUserDefaults standardUserDefaults] objectForKey:@"email"]
+                                                     first:[[NSUserDefaults standardUserDefaults] objectForKey:@"first"]
+                                                      last:[[NSUserDefaults standardUserDefaults] objectForKey:@"last"]
+                                                    APIKey:[[NSUserDefaults standardUserDefaults] objectForKey:@"apikey"]
+                                                   FBEmail:nil];
+        [mGraph addUser:loggedInUser];
     }
     return YES;
 }
