@@ -33,6 +33,8 @@
         [self.view setBackgroundColor:[UIColor colorWithWhite:0.9216f alpha:1.0f]];
         if (!AppDelegate.catalog) {
             AppDelegate.catalog = [[FCCatalog alloc] initWithDelegate:self];
+        } else {
+            [AppDelegate.catalog registerForDelegateCallback:self];
         }
         mCatalog = AppDelegate.catalog;
         [mCatalog downloadProductCategoryWithID:1];

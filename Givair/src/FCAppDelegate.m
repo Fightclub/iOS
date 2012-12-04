@@ -9,6 +9,7 @@
 #import "FCAppDelegate.h"
 
 #import "FCNetwork.h"
+#import "FCCatalog.h"
 
 #import "FCGiftNavigationController.h"
 #import "FCPeopleNavigationController.h"
@@ -21,6 +22,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     mNetwork = [[FCNetwork alloc] init];
+    mCatalog = [[FCCatalog alloc] init];
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
