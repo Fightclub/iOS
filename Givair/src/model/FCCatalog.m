@@ -23,7 +23,7 @@ typedef enum {
 
 @implementation FCCatalog
 
-- (id) initWithDelegate:(id<FCCatalogDelegate>)delegate {
+- (id) init {
     self = [super init];
     if (self) {
         mProducts = [[NSMutableDictionary alloc] init];
@@ -33,8 +33,16 @@ typedef enum {
                                                        0,
                                                        &kCFTypeDictionaryKeyCallBacks,
                                                        &kCFTypeDictionaryValueCallBacks);
-        mDelegates = [[NSMutableArray alloc] initWithObjects:delegate, nil];
+        mDelegates = [[NSMutableArray alloc] init];
         [self downloadCatalog];
+    }
+    return self;
+}
+
+- (id) initWithDelegate:(id<FCCatalogDelegate>)delegate {
+    self = [self init];
+    if (self) {
+        mDelegates = [[NSMutableArray alloc] initWithObjects:delegate, nil];
     }
     return self;
 }
