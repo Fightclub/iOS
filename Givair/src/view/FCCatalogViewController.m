@@ -146,6 +146,11 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    UIBarButtonItem *myGifts = [[UIBarButtonItem alloc] initWithTitle:@"My Gifts"
+                                                                style:UIBarButtonItemStylePlain
+                                                               target:self.parentViewController
+                                                               action:@selector(showMyGifts)];
+    self.navigationItem.rightBarButtonItem = myGifts;
 }
 
 - (void)didReceiveMemoryWarning

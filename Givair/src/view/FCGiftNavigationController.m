@@ -9,6 +9,7 @@
 #import "FCGiftNavigationController.h"
 
 #import "FCCatalogViewController.h"
+#import "FCGiftListViewController.h"
 
 @interface FCGiftNavigationController ()
 
@@ -28,6 +29,13 @@
         [[UINavigationBar appearance] setTitleTextAttributes:titleBarAttributes];
     }
     return self;
+}
+
+- (void)showMyGifts{
+    UIViewController * giftsViewController = [[FCGiftListViewController alloc] init];
+    // Probably want to use [self presentViewController:<#(UIViewController *)#> animated:<#(BOOL)#> completion:<#^(void)completion#>] instead
+    // to get the push up from bottom. Using pushViewController for now since the gift list doesn't have a nav bar.
+    [self pushViewController:giftsViewController animated:YES];
 }
 
 - (void)viewDidLoad
