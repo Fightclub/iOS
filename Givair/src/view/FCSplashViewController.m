@@ -11,6 +11,8 @@
 #import "FCSplashViewController.h"
 
 #import "FCAppDelegate.h"
+#import "FCGraph.h"
+#import "FCUser.h"
 
 @implementation UIScrollView (FCExtentions)
 
@@ -513,6 +515,13 @@ typedef enum {
         if ([info objectForKey:@"error"]) {
             [self loginFailedWithErrorMessage:[info objectForKey:@"error"]];
         } else {
+            FCUser * thisUser = [[FCUser alloc] initWithID:[[info objectForKey:@"id"] integerValue] 
+                                                     Email:[info objectForKey:@"email"]
+                                                     first:[info objectForKey:@"first"]
+                                                      last:[info objectForKey:@"last"]
+                                                    APIKey:[info objectForKey:@"apikey"]
+                                                   FBEmail:[info objectForKey:@"fbemail"]];
+            [AppDelegate.graph addUser:thisUser];
             [[NSUserDefaults standardUserDefaults] setObject:[info objectForKey:@"apikey"] forKey:@"apikey"];
             [[NSUserDefaults standardUserDefaults] setObject:[info objectForKey:@"email"] forKey:@"email"];
             [[NSUserDefaults standardUserDefaults] setObject:[info objectForKey:@"first"] forKey:@"first"];
@@ -524,6 +533,13 @@ typedef enum {
         if ([info objectForKey:@"error"]) {
             [self registrationFailedWithErrorMessage:[info objectForKey:@"error"]];
         } else {
+            FCUser * thisUser = [[FCUser alloc] initWithID:[[info objectForKey:@"id"] integerValue]
+                                                     Email:[info objectForKey:@"email"]
+                                                     first:[info objectForKey:@"first"]
+                                                      last:[info objectForKey:@"last"]
+                                                    APIKey:[info objectForKey:@"apikey"]
+                                                   FBEmail:[info objectForKey:@"fbemail"]];
+            [AppDelegate.graph addUser:thisUser];
             [[NSUserDefaults standardUserDefaults] setObject:[info objectForKey:@"apikey"] forKey:@"apikey"];
             [[NSUserDefaults standardUserDefaults] setObject:[info objectForKey:@"email"] forKey:@"email"];
             [[NSUserDefaults standardUserDefaults] setObject:[info objectForKey:@"first"] forKey:@"first"];

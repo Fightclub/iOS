@@ -32,6 +32,7 @@
 
 - (void)downloadUserInfoWithID:(int)ID;
 - (FCUser *)getUserWithID:(int)ID;
+- (void)addUser:(FCUser *)newUser;
 - (void)downloadGiftsForUserWithKey:(NSString*)key;
 
 - (BOOL)updating;
