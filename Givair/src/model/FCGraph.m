@@ -104,6 +104,8 @@ typedef enum {
     if (!newGift) {
         NSDictionary * productInfo = [info objectForKey:@"product"];
         NSDictionary * vendorInfo = [productInfo objectForKey:@"vendor"];
+        NSDictionary * senderInfo = [info objectForKey:@"sender"];
+        NSDictionary * receiverInfo = [productInfo objectForKey:@"receiver"];
         FCProduct * newProduct = [AppDelegate.catalog getProductWithID:[[productInfo objectForKey:@"id"] intValue]];
         if (!newProduct) {
             FCVendor * newVendor = [AppDelegate.catalog getVendorWithID:[[vendorInfo objectForKey:@"id"] intValue]];
@@ -123,9 +125,27 @@ typedef enum {
                                            bannerImage:nil];
             [AppDelegate.catalog addProduct:newProduct];
         }
+        FCUser * sender = [AppDelegate.graph getUserWithID:[[senderInfo objectForKey:@"id"] intValue]];
+        if (!sender) {
+            sender = [[FCUser alloc] initWithID:[[senderInfo objectForKey:@"id"] intValue]
+                                          Email:[senderInfo objectForKey:@"email"]
+                                          first:[senderInfo objectForKey:@"first"]
+                                           last:[senderInfo objectForKey:@"last"]
+                                         APIKey:nil FBEmail:nil];
+            [AppDelegate.graph addUser:sender];
+        }
+        FCUser * receiver = [AppDelegate.graph getUserWithID:[[senderInfo objectForKey:@"id"] intValue]];
+        if (!receiver) {
+            receiver = [[FCUser alloc] initWithID:[[receiverInfo objectForKey:@"id"] intValue]
+                                            Email:[receiverInfo objectForKey:@"email"]
+                                            first:[receiverInfo objectForKey:@"first"]
+                                             last:[receiverInfo objectForKey:@"last"]
+                                           APIKey:nil FBEmail:nil];
+            [AppDelegate.graph addUser:receiver];
+        }
         newGift = [[FCGift alloc] initWithID:[[info objectForKey:@"id"] intValue]
-                                      sender:nil
-                                    receiver:nil
+                                      sender:sender
+                                    receiver:receiver
                                      product:newProduct
                                       status:kFCGiftStatusCreated
                                      created:nil
