@@ -13,6 +13,8 @@
 @implementation FCGift
 
 @synthesize ID = mID;
+@synthesize sender = mSender;
+@synthesize receiver = mReceiver;
 @synthesize product = mProduct;
 
 - (id) initWithID:(int)ID

@@ -73,7 +73,7 @@
     FCGift * gift = [[user getReceivedGifts] objectAtIndex:indexPath.row];
 
     [cell setTitle:gift.product.name];
-    [cell setSubtitle:gift.product.vendor.name];
+    [cell setSubtitle:[NSString stringWithFormat:@"from %@ %@", gift.sender.first, gift.sender.last]];
     [cell setIconImage:[gift.product getIcon]];
     
     return cell;
