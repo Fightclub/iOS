@@ -8,6 +8,8 @@
 
 #import "FCGiftListViewController.h"
 
+#import "FCRedemptionViewController.h"
+
 #import "FCAppDelegate.h"
 #import "FCGift.h"
 #import "FCIconCell.h"
@@ -77,6 +79,15 @@
     [cell setIconImage:[gift.product getIcon]];
     
     return cell;
+}
+
+#pragma mark - Table view delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    FCUser * user = [mGraph getUserWithID:[[[NSUserDefaults standardUserDefaults] objectForKey:@"id"] intValue]];
+    FCGift * gift = [[user getReceivedGifts] objectAtIndex:indexPath.row];
+    FCRedemptionViewController * newView = [[FCRedemptionViewController alloc] initWithGift:gift];
+    [self.navigationController presentViewController:newView animated:YES completion:nil];
 }
 
 #pragma mark - FCCatalogDelegate

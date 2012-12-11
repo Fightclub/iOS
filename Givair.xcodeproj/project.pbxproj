@@ -21,6 +21,8 @@
 		0A30B14916615EAD00CE472C /* FCCarouselBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A30B14816615EAD00CE472C /* FCCarouselBannerView.m */; };
 		0A30B14C16615F0200CE472C /* FCCarouselIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A30B14B16615F0200CE472C /* FCCarouselIconView.m */; };
 		0A362A0F166EAD9500552368 /* FCGiftListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A362A0E166EAD9500552368 /* FCGiftListViewController.m */; };
+		0A362A2E166ED57800552368 /* FCRedemptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A362A2D166ED57800552368 /* FCRedemptionViewController.m */; };
+		0A362A33166ED90000552368 /* FCImageNavView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A362A32166ED90000552368 /* FCImageNavView.m */; };
 		0A691E4E165CA4AF00839686 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0A691E4A165CA4AF00839686 /* InfoPlist.strings */; };
 		0A691E5A165CA55300839686 /* FCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A691E59165CA55300839686 /* FCAppDelegate.m */; };
 		0A85E8E7165C9FAC00983D56 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A85E8E6165C9FAC00983D56 /* UIKit.framework */; };
@@ -83,6 +85,10 @@
 		0A30B14D16615F6900CE472C /* FCCarouselObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FCCarouselObject.h; sourceTree = "<group>"; };
 		0A362A0D166EAD9500552368 /* FCGiftListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCGiftListViewController.h; sourceTree = "<group>"; };
 		0A362A0E166EAD9500552368 /* FCGiftListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCGiftListViewController.m; sourceTree = "<group>"; };
+		0A362A2C166ED57800552368 /* FCRedemptionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCRedemptionViewController.h; sourceTree = "<group>"; };
+		0A362A2D166ED57800552368 /* FCRedemptionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCRedemptionViewController.m; sourceTree = "<group>"; };
+		0A362A31166ED90000552368 /* FCImageNavView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCImageNavView.h; sourceTree = "<group>"; };
+		0A362A32166ED90000552368 /* FCImageNavView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCImageNavView.m; sourceTree = "<group>"; };
 		0A691E4B165CA4AF00839686 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = gui/en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0A691E58165CA55300839686 /* FCAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FCAppDelegate.h; path = src/FCAppDelegate.h; sourceTree = "<group>"; };
 		0A691E59165CA55300839686 /* FCAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FCAppDelegate.m; path = src/FCAppDelegate.m; sourceTree = "<group>"; };
@@ -339,6 +345,8 @@
 				0AAD585E165EFF75009E250F /* FCGiftNavigationController.m */,
 				0A362A0D166EAD9500552368 /* FCGiftListViewController.h */,
 				0A362A0E166EAD9500552368 /* FCGiftListViewController.m */,
+				0A362A2C166ED57800552368 /* FCRedemptionViewController.h */,
+				0A362A2D166ED57800552368 /* FCRedemptionViewController.m */,
 			);
 			name = Gifts;
 			sourceTree = "<group>";
@@ -360,6 +368,8 @@
 				0AAA545016633F1100180E7F /* FCIconCell.m */,
 				0AAD5862165EFFA3009E250F /* FCImageView.h */,
 				0AAD5863165EFFA3009E250F /* FCImageView.m */,
+				0A362A31166ED90000552368 /* FCImageNavView.h */,
+				0A362A32166ED90000552368 /* FCImageNavView.m */,
 			);
 			name = UIElements;
 			sourceTree = "<group>";
@@ -496,6 +506,8 @@
 				0A1A5F66166DDDEB0069017A /* FCGift.m in Sources */,
 				0A362A0F166EAD9500552368 /* FCGiftListViewController.m in Sources */,
 				0ADF459C1664BA4200E0C0FA /* FCSplashViewController.m in Sources */,
+				0A362A2E166ED57800552368 /* FCRedemptionViewController.m in Sources */,
+				0A362A33166ED90000552368 /* FCImageNavView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

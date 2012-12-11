@@ -29,8 +29,8 @@ typedef enum {
 }
 
 @property (nonatomic, readonly) int ID;
-@property (nonatomic, readonly) FCUser * sender;
 @property (nonatomic, readonly) FCUser * receiver;
+@property (nonatomic, readonly) FCUser * sender;
 @property (nonatomic, readonly) FCProduct * product;
 
 - (id) initWithID:(int)ID
