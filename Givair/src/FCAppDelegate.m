@@ -8,22 +8,50 @@
 
 #import "FCAppDelegate.h"
 
-#import "FCFirstViewController.h"
+#import "FCNetwork.h"
+#import "FCCatalog.h"
+#import "FCGraph.h"
 
-#import "FCSecondViewController.h"
+#import "FCSplashViewController.h"
+#import "FCGiftNavigationController.h"
+#import "FCPeopleNavigationController.h"
+
+#import "FCUser.h"
 
 @implementation FCAppDelegate
 
+@synthesize network = mNetwork;
+@synthesize graph = mGraph;
+@synthesize catalog = mCatalog;
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    mNetwork = [[FCNetwork alloc] init];
+    mGraph = [[FCGraph alloc] init];
+    mCatalog = [[FCCatalog alloc] init];
+
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    UIViewController *viewController1 = [[FCFirstViewController alloc] initWithNibName:@"FCFirstViewController" bundle:nil];
-    UIViewController *viewController2 = [[FCSecondViewController alloc] initWithNibName:@"FCSecondViewController" bundle:nil];
+    UIViewController *viewController1 = [[FCGiftNavigationController alloc] init];
+    UIViewController *viewController2 = [[FCPeopleNavigationController alloc] init];
     self.tabBarController = [[UITabBarController alloc] init];
     self.tabBarController.viewControllers = @[viewController1, viewController2];
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
+
+    FCSplashViewController * splash = [[FCSplashViewController alloc] init];
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"apikey"]) {
+         [self.tabBarController presentViewController:splash animated:NO completion:NULL];
+    } else {
+        // Need to add the logged in user to the graph
+        FCUser * loggedInUser = [[FCUser alloc] initWithID:[[NSUserDefaults standardUserDefaults] integerForKey:@"id"]
+                                                     Email:[[NSUserDefaults standardUserDefaults] objectForKey:@"email"]
+                                                     first:[[NSUserDefaults standardUserDefaults] objectForKey:@"first"]
+                                                      last:[[NSUserDefaults standardUserDefaults] objectForKey:@"last"]
+                                                    APIKey:[[NSUserDefaults standardUserDefaults] objectForKey:@"apikey"]
+                                                   FBEmail:nil];
+        [mGraph addUser:loggedInUser];
+    }
     return YES;
 }
 
