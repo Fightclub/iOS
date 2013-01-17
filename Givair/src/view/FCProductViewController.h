@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+#import "FCCatalog.h"
+
 @class FCImageView;
 @class FCProduct;
 
-@interface FCProductViewController : UIViewController {
+@interface FCProductViewController : UIViewController <FCCatalogDelegate> {
     FCProduct * mProduct;
 
     FCImageView * mIconView;

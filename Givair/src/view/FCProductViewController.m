@@ -10,6 +10,7 @@
 
 #import "FCProductViewController.h"
 
+#import "FCAppDelegate.h"
 #import "FCImageView.h"
 #import "FCProduct.h"
 #import "FCVendor.h"
@@ -44,6 +45,12 @@
     self = [super init];
     if (self) {
         mProduct = product;
+        if (!AppDelegate.catalog) {
+            AppDelegate.catalog = [[FCCatalog alloc] initWithDelegate:self];
+        } else {
+            [AppDelegate.catalog registerForDelegateCallback:self];
+        }
+        [AppDelegate.catalog downloadProductWithID:mProduct.ID];
         self.title = @"Info";
 
         UIScrollView * content = [[UIScrollView alloc] initWithFrame:self.view.frame];
@@ -84,15 +91,15 @@
         [mVendorLabel setText:mProduct.vendor.name];
         [self.view addSubview:mVendorLabel];
 
-        mDescrLabel = [[UILabel alloc] initWithFrame:CGRectMake(mVendorLabel.frame.origin.x, mVendorLabel.frame.origin.y + mVendorLabel.frame.size.height ,
-                                                                mVendorLabel.frame.size.width, 40.0f)];
+        mDescrLabel = [[UILabel alloc] initWithFrame:CGRectMake(mIconView.frame.origin.x, mIconView.frame.origin.y + mIconView.frame.size.height + 10.0f,
+                                                                self.view.frame.size.width - mIconView.frame.origin.x, 70.0f)];
         [mDescrLabel setFont:[UIFont fontWithName:@"MyriadApple-Semibold" size:12.0f]];
         [mDescrLabel setTextColor:[UIColor colorWithWhite:0.3f alpha:1.0f]];
         [mDescrLabel setBackgroundColor:[UIColor clearColor]];
         [mDescrLabel setShadowColor:[UIColor whiteColor]];
         [mDescrLabel setShadowOffset:CGSizeMake(0.0, 1.0)];
-        [mDescrLabel setNumberOfLines:3];
-        [mDescrLabel setText:[mProduct getDescription]];
+        [mDescrLabel setNumberOfLines:5];
+        [mDescrLabel setText:mProduct.description];
         CGRect descrRect = [mDescrLabel textRectForBounds:mDescrLabel.bounds limitedToNumberOfLines:999];
         CGRect f = mDescrLabel.frame;
         f.size.height = descrRect.size.height;
@@ -101,6 +108,18 @@
         [self.view addSubview:mDescrLabel];
     }
     return self;
+}
+
+- (void)catalogFinishedUpdating {
+    [mTitleLabel setText:mProduct.name];
+    [mVendorLabel setText:mProduct.vendor.name];
+    [mDescrLabel setFrame:CGRectMake(mDescrLabel.frame.origin.x, mDescrLabel.frame.origin.y,
+                                     self.view.frame.size.width - mDescrLabel.frame.origin.x * 2, 70.0f)];
+    [mDescrLabel setText:mProduct.description];
+    CGRect descrRect = [mDescrLabel textRectForBounds:mDescrLabel.bounds limitedToNumberOfLines:999];
+    CGRect f = mDescrLabel.frame;
+    f.size.height = descrRect.size.height;
+    mDescrLabel.frame = f;
 }
 
 @end

@@ -578,10 +578,12 @@
 		0A85E915165C9FAC00983D56 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Peter Tsoi (94YD5NUQPT)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Givair/misc/Prefix.pch;
 				INFOPLIST_FILE = "$(SRCROOT)/Givair/misc/Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "58237BD8-7EB7-48D8-BE9C-62B080702D06";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -589,10 +591,12 @@
 		0A85E916165C9FAC00983D56 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Peter Tsoi (94YD5NUQPT)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Givair/misc/Prefix.pch;
 				INFOPLIST_FILE = "$(SRCROOT)/Givair/misc/Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "58237BD8-7EB7-48D8-BE9C-62B080702D06";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -19,6 +19,7 @@
 @synthesize name = mName;
 @synthesize sku = mSKU;
 @synthesize vendor = mVendor;
+@synthesize description = mDescription;
 
 - (id)initWithID:(int)ID price:(float)price name:(NSString*)name description:(NSString*)description SKU:(NSString*)sku vendor:(FCVendor*)vendor iconImage:(NSURL *)iconURL bannerImage:(NSURL *)bannerURL{
     self = [super init];
@@ -28,6 +29,7 @@
         mName = name;
         mSKU = sku;
         mVendor = vendor;
+        mDescription = description;
         mIconImage = [[FCImage alloc] initWithURL:iconURL];
         mBannerImage = [[FCImage alloc] initWithURL:bannerURL];
         [mVendor addProduct:self];
@@ -37,10 +39,6 @@
 
 - (NSString*)getName {
     return mName;
-}
-
-- (NSString*)getDescription {
-    return @"Description";
 }
 
 - (FCImage*)getIcon {

@@ -26,10 +26,10 @@
 }
 
 @property (nonatomic, readonly) int ID;
-@property (nonatomic, readonly) float price;
+@property (nonatomic) float price;
 @property (nonatomic, readonly) NSString * name;
-@property (nonatomic, readonly) NSString * description;
-@property (nonatomic, readonly) NSString * sku;
+@property (nonatomic) NSString * description;
+@property (nonatomic) NSString * sku;
 @property (nonatomic, readonly) FCVendor * vendor;
 
 - (id)initWithID:(int)ID

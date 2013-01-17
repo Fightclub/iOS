@@ -192,6 +192,9 @@ typedef enum {
         [newProduct setIconImage:[[FCImage alloc] initWithURL:[NSURL URLWithString:[info objectForKey:@"icon"]]]];
         [newProduct setBannerImage:[[FCImage alloc] initWithURL:[NSURL URLWithString:[info objectForKey:@"banner"]]]];
     }
+    newProduct.price = [[info objectForKey:@"price"] floatValue];
+    newProduct.sku = [info objectForKey:@"sku"];
+    newProduct.description = [info objectForKey:@"description"];
     return newProduct;
 }
 
