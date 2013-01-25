@@ -20,6 +20,9 @@
     UILabel * mTitleLabel;
     UILabel * mVendorLabel;
     UILabel * mDescrLabel;
+
+    UIButton * mWishListButton;
+    UIButton * mBuyButton;
 }
 
 - (id)initWithProduct:(FCProduct *)product;

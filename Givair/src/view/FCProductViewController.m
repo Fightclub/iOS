@@ -106,6 +106,35 @@
         mDescrLabel.frame = f;
         
         [self.view addSubview:mDescrLabel];
+
+        if ([mProduct.vendor.name isEqualToString:@"Starbucks"]) {
+            mWishListButton = [[UIButton alloc] initWithFrame:CGRectMake(mIconView.frame.origin.x, self.view.frame.size.height - 32 - 142,
+                                                                         self.view.frame.size.width - mIconView.frame.origin.x * 2, 32)];
+            mBuyButton = [[UIButton alloc] initWithFrame:CGRectMake(mIconView.frame.origin.x, self.view.frame.size.height - 32 - 102,
+                                                                    self.view.frame.size.width - mIconView.frame.origin.x * 2, 32)];
+
+            [mWishListButton setBackgroundImage:[[UIImage imageNamed:@"graybutton.png"]
+                                               resizableImageWithCapInsets:UIEdgeInsetsMake(3.0f, 3.0f, 3.0f, 3.0f)]
+                                     forState:UIControlStateNormal];
+
+            [mBuyButton setBackgroundImage:[[UIImage imageNamed:@"bluebutton.png"]
+                                               resizableImageWithCapInsets:UIEdgeInsetsMake(3.0f, 3.0f, 3.0f, 3.0f)]
+                                     forState:UIControlStateNormal];
+
+            [mWishListButton setTitle:@"Add to Wishlist" forState:UIControlStateNormal];
+            [mBuyButton setTitle:@"Send to a Friend" forState:UIControlStateNormal];
+
+            [mWishListButton.titleLabel setFont:[UIFont fontWithName:@"MyriadApple-Bold" size:16.0f]];
+            [mWishListButton.titleLabel setShadowColor:[UIColor grayColor]];
+            [mWishListButton.titleLabel setShadowOffset:CGSizeMake(0.0, -1.0)];
+
+            [mBuyButton.titleLabel setFont:[UIFont fontWithName:@"MyriadApple-Bold" size:16.0f]];
+            [mBuyButton.titleLabel setShadowColor:[UIColor grayColor]];
+            [mBuyButton.titleLabel setShadowOffset:CGSizeMake(0.0, -1.0)];
+
+            [self.view addSubview:mWishListButton];
+            [self.view addSubview:mBuyButton];
+        }
     }
     return self;
 }
