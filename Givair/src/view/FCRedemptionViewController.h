@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FCGraph.h"
 
 @class FCGift;
 
+
 @interface FCRedemptionViewController : UIViewController {
     FCGift * mGift;
+    FCGraph * mGraph;
 }
 
 - (id)initWithGift:(FCGift*)gift;
