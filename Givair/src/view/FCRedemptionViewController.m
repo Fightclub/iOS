@@ -39,15 +39,8 @@
         [navView setTitle:gift.product.name];
         
         if (gift.barcodeUrlString != nil) {
-            // Barcode redemption
-            FCImage * barcode = [[FCImage alloc] initWithURL:[NSURL URLWithString:gift.barcodeUrlString]];
-            FCImageView * barcodeView = [[FCImageView alloc] initWithFCImage:barcode inFrame:CGRectMake(40, 360, 240, 60)];
-            
-            [self.view addSubview:barcodeView];
+            [self showBarcode];
 
-        } else {
-            //NSLog(@"Barcode not generated");
-            //[navView setTitle:@"Barcode Not Generated"];
         }
 
     }
@@ -59,13 +52,15 @@
 }
 
 - (void)graphFinishedUpdating {
-    // Barcode redemption
+    [self showBarcode];
+}
+
+- (void)showBarcode {
     FCImage * barcode = [[FCImage alloc] initWithURL:[NSURL URLWithString:mGift.barcodeUrlString]];
     FCImageView * barcodeView = [[FCImageView alloc] initWithFCImage:barcode inFrame:CGRectMake(40, 360, 240, 60)];
     
     [self.view addSubview:barcodeView];
 }
-
 
 
 @end
