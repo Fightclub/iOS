@@ -183,13 +183,14 @@ typedef enum {
 }
 
 - (void)redeemUserGift:(NSDictionary*)info {
-    NSLog(@"%@",info);
+    //NSLog(@"%@",info);
     NSDictionary * redemptionInfo = [info objectForKey:@"redemptionInfo"];
     NSString * barcodeUrlString = [redemptionInfo objectForKey:@"barcode"];
-    if (redemptionInfo && barcodeUrlString) {
-        // HARD CODED
-        [[mGifts objectForKey:@"4"] setBarcodeUrlString:barcodeUrlString];
+    NSString * giftID = [info objectForKey:@"id"];
+    if (redemptionInfo && barcodeUrlString && giftID) {
+        [[mGifts objectForKey:giftID] setBarcodeUrlString:barcodeUrlString];
     }
+    NSLog(@"%@",[[mGifts objectForKey:giftID] barcodeUrlString]);
 }
 
 - (FCGift *) getGiftWithID:(int)ID {

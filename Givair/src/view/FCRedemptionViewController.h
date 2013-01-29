@@ -12,7 +12,7 @@
 @class FCGift;
 
 
-@interface FCRedemptionViewController : UIViewController {
+@interface FCRedemptionViewController : UIViewController <FCGraphDelegate> {
     FCGift * mGift;
     FCGraph * mGraph;
 }
