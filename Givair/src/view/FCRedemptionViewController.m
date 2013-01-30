@@ -58,7 +58,7 @@
         pullUpLabel.textAlignment = UITextAlignmentCenter;
         pullUpLabel.backgroundColor = [UIColor clearColor];
         pullUpLabel.textColor = [UIColor whiteColor];
-        pullUpLabel.text = @"Swipe to redeem";
+        pullUpLabel.text = @"Swipe to redeem ↑";
         pullUpLabel.font = [UIFont fontWithName:@"TrebuchetMS-Bold" size:20];
         [pullUpView addSubview:pullUpLabel];
         //[pullUpLabel release];
@@ -110,9 +110,9 @@
 - (void)pullableView:(PullableView *)pView didChangeState:(BOOL)opened {
     if (opened) {
         //[self showBarcode];
-        pullUpLabel.text = @"Swipe to Cancel";
+        pullUpLabel.text = @"Swipe to Cancel ↓";
     } else {
-        pullUpLabel.text = @"Swipe to Redeem";
+        pullUpLabel.text = @"Swipe to Redeem ↑";
     }
 }
 
