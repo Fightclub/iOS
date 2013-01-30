@@ -20,6 +20,7 @@
 typedef enum {
     kFCGraphNetworkTaskDownloadUserInfo,
     kFCGraphNetworkTaskDownloadUserGifts,
+    kFCGraphNetworkTaskSendGift,
 } kFCGraphNetworkTask;
 
 - (id) init {
@@ -153,6 +154,14 @@ typedef enum {
                                     redeemed:nil];
     }
     return newGift;
+}
+
+- (void)sendNewGift:(FCProduct*)gift fromUser:(NSString*)apiKey toUser:(NSString*)recieverEmail {
+    FCConnection * conn = [AppDelegate.network dataAtURL:[NSURL URLWithString:[NSString stringWithFormat:@"network/a/gift/new?apikey=%@&product=%i&email=%@", apiKey, gift.ID, recieverEmail]
+                                                                relativeToURL:[NSURL URLWithString:@"http://fight-club-alpha.herokuapp.com"]] delegate:self];
+    CFDictionaryAddValue(mActiveConnections,
+                         (__bridge const void *)conn,
+                         (__bridge const void *)[NSString stringWithFormat:@"%i",kFCGraphNetworkTaskSendGift]);
 }
 
 - (void)downloadedUserGiftList:(NSDictionary*)info {

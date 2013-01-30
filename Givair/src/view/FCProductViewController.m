@@ -14,6 +14,7 @@
 #import "FCImageView.h"
 #import "FCProduct.h"
 #import "FCVendor.h"
+#import "FCFriendSelectViewController.h"
 
 #define ICON_VIEW_WIDTH  70.0f
 #define ICON_VIEW_HEIGHT 70.0f
@@ -56,6 +57,8 @@
         UIScrollView * content = [[UIScrollView alloc] initWithFrame:self.view.frame];
         [content setAlwaysBounceVertical:YES];
         self.view = content;
+
+        mSelectedSize = 1;
         
         [self.view setBackgroundColor:[UIColor colorWithWhite:0.9216f alpha:1.0f]];
 
@@ -131,9 +134,25 @@
             [mBuyButton.titleLabel setFont:[UIFont fontWithName:@"MyriadApple-Bold" size:16.0f]];
             [mBuyButton.titleLabel setShadowColor:[UIColor grayColor]];
             [mBuyButton.titleLabel setShadowOffset:CGSizeMake(0.0, -1.0)];
+            [mBuyButton addTarget:self action:@selector(sendButtonPushed:) forControlEvents:UIControlEventTouchUpInside];
 
             [self.view addSubview:mWishListButton];
             [self.view addSubview:mBuyButton];
+
+            mSmallButton = [[UIButton alloc] initWithFrame: CGRectMake(30, self.view.frame.size.height - 210 - 65, 50, 65)];
+            [mSmallButton setImage:[UIImage imageNamed:@"smallcup_gray.png"] forState:UIControlStateNormal];
+            [mSmallButton addTarget:self action:@selector(selectedSize:) forControlEvents:UIControlEventTouchUpInside];
+            [self.view addSubview:mSmallButton];
+
+            mMediumButton = [[UIButton alloc] initWithFrame: CGRectMake(120, self.view.frame.size.height - 210 - 85, 65, 85)];
+            [mMediumButton setImage:[UIImage imageNamed:@"medcup_green.png"] forState:UIControlStateNormal];
+            [mMediumButton addTarget:self action:@selector(selectedSize:) forControlEvents:UIControlEventTouchUpInside];
+            [self.view addSubview:mMediumButton];
+
+            mLargeButton = [[UIButton alloc] initWithFrame: CGRectMake(225, self.view.frame.size.height - 210 - 101, 78, 101)];
+            [mLargeButton setImage:[UIImage imageNamed:@"lrgcup_gray.png"] forState:UIControlStateNormal];
+            [mLargeButton addTarget:self action:@selector(selectedSize:) forControlEvents:UIControlEventTouchUpInside];
+            [self.view addSubview:mLargeButton];
         }
     }
     return self;
@@ -149,6 +168,30 @@
     CGRect f = mDescrLabel.frame;
     f.size.height = descrRect.size.height;
     mDescrLabel.frame = f;
+}
+
+- (void)selectedSize:(id)sender {
+    if (sender == mSmallButton) {
+        mSelectedSize = 0;
+        [mSmallButton setImage:[UIImage imageNamed:@"smallcup_green.png"] forState:UIControlStateNormal];
+        [mMediumButton setImage:[UIImage imageNamed:@"medcup_gray.png"] forState:UIControlStateNormal];
+        [mLargeButton setImage:[UIImage imageNamed:@"lrgcup_gray.png"] forState:UIControlStateNormal];
+    } else if (sender == mMediumButton) {
+        mSelectedSize = 1;
+        [mSmallButton setImage:[UIImage imageNamed:@"smallcup_gray.png"] forState:UIControlStateNormal];
+        [mMediumButton setImage:[UIImage imageNamed:@"medcup_green.png"] forState:UIControlStateNormal];
+        [mLargeButton setImage:[UIImage imageNamed:@"lrgcup_gray.png"] forState:UIControlStateNormal];
+    } else if (sender == mLargeButton) {
+        mSelectedSize = 2;
+        [mSmallButton setImage:[UIImage imageNamed:@"smallcup_gray.png"] forState:UIControlStateNormal];
+        [mMediumButton setImage:[UIImage imageNamed:@"medcup_gray.png"] forState:UIControlStateNormal];
+        [mLargeButton setImage:[UIImage imageNamed:@"lrgcup_green.png"] forState:UIControlStateNormal];
+    }
+}
+
+- (void)sendButtonPushed:(id)sender {
+    FCFriendSelectViewController * selection = [[FCFriendSelectViewController alloc] initWithGift:mProduct];
+    [self.navigationController pushViewController:selection animated:YES];
 }
 
 @end

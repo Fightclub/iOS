@@ -23,6 +23,12 @@
 
     UIButton * mWishListButton;
     UIButton * mBuyButton;
+
+    UIButton * mSmallButton;
+    UIButton * mMediumButton;
+    UIButton * mLargeButton;
+
+    int mSelectedSize;
 }
 
 - (id)initWithProduct:(FCProduct *)product;
