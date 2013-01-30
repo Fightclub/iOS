@@ -11,6 +11,7 @@
 #import "FCNetwork.h"
 
 @class FCUser;
+@class FCProduct;
 
 @protocol FCGraphDelegate
 
@@ -35,6 +36,7 @@
 - (void)addUser:(FCUser *)newUser;
 - (void)downloadGiftsForUserWithKey:(NSString*)key;
 - (void)redeemGiftsForUserWithKey:(NSString*)key GiftID:(int)ID;
+- (void)sendNewGift:(FCProduct*)gift fromUser:(NSString*)apiKey toUser:(NSString*)recieverEmail;
 
 - (BOOL)updating;
 

@@ -8,16 +8,27 @@
 
 #import <UIKit/UIKit.h>
 
+#import "FCCatalog.h"
+
 @class FCImageView;
 @class FCProduct;
 
-@interface FCProductViewController : UIViewController {
+@interface FCProductViewController : UIViewController <FCCatalogDelegate> {
     FCProduct * mProduct;
 
     FCImageView * mIconView;
     UILabel * mTitleLabel;
     UILabel * mVendorLabel;
     UILabel * mDescrLabel;
+
+    UIButton * mWishListButton;
+    UIButton * mBuyButton;
+
+    UIButton * mSmallButton;
+    UIButton * mMediumButton;
+    UIButton * mLargeButton;
+
+    int mSelectedSize;
 }
 
 - (id)initWithProduct:(FCProduct *)product;
