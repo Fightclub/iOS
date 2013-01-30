@@ -14,6 +14,7 @@
 @interface FCGiftListViewController : UITableViewController <FCCatalogDelegate, FCGraphDelegate> {
     FCCatalog * mCatalog;
     FCGraph * mGraph;
+    UIRefreshControl * mRefreshControl;
 }
 
 @end

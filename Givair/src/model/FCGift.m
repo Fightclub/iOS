@@ -16,6 +16,7 @@
 @synthesize sender = mSender;
 @synthesize receiver = mReceiver;
 @synthesize product = mProduct;
+@synthesize barcodeUrlString = mBarcodeUrlString;
 
 - (id) initWithID:(int)ID
            sender:(FCUser*)sender
@@ -35,8 +36,11 @@
         mCreated = created;
         mActivated = activated;
         mRedeemed = redeemed;
+        mBarcodeUrlString = nil;
     }
     return self;
 }
+
+
 
 @end

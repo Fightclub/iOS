@@ -7,11 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FCGraph.h"
+#import "StyledPullableView.h"
 
 @class FCGift;
 
-@interface FCRedemptionViewController : UIViewController {
+
+@interface FCRedemptionViewController : UIViewController <FCGraphDelegate> {
     FCGift * mGift;
+    FCGraph * mGraph;
+    StyledPullableView *pullUpView;
+    UILabel *pullUpLabel;
 }
 
 - (id)initWithGift:(FCGift*)gift;

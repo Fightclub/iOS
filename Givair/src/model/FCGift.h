@@ -11,6 +11,7 @@
 @class FCUser;
 @class FCProduct;
 
+
 typedef enum {
     kFCGiftStatusCreated,
     kFCGiftStatusActive,
@@ -26,12 +27,14 @@ typedef enum {
     NSDate * mCreated;
     NSDate * mActivated;
     NSDate * mRedeemed;
+    NSString * mBarcodeUrlString;
 }
 
 @property (nonatomic, readonly) int ID;
 @property (nonatomic, readonly) FCUser * receiver;
 @property (nonatomic, readonly) FCUser * sender;
 @property (nonatomic, readonly) FCProduct * product;
+@property (nonatomic, readwrite) NSString * barcodeUrlString;
 
 - (id) initWithID:(int)ID
            sender:(FCUser*)sender

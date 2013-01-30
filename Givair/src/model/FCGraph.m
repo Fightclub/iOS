@@ -20,6 +20,7 @@
 typedef enum {
     kFCGraphNetworkTaskDownloadUserInfo,
     kFCGraphNetworkTaskDownloadUserGifts,
+    kFCGraphNetworkTaskRedeemUserGift
 } kFCGraphNetworkTask;
 
 - (id) init {
@@ -92,6 +93,14 @@ typedef enum {
     CFDictionaryAddValue(mActiveConnections,
                          (__bridge const void *)conn,
                          (__bridge const void *)[NSString stringWithFormat:@"%i",kFCGraphNetworkTaskDownloadUserGifts]);
+}
+
+- (void)redeemGiftsForUserWithKey:(NSString*)key GiftID:(int)ID {
+    FCConnection * conn = [AppDelegate.network dataAtURL:[NSURL URLWithString:[NSString stringWithFormat:@"network/a/gift/redeem?apikey=%@&gift=%i", key, ID]
+                                                                relativeToURL:[NSURL URLWithString:@"http://fight-club-alpha.herokuapp.com"]] delegate:self];
+    CFDictionaryAddValue(mActiveConnections,
+                         (__bridge const void *)conn,
+                         (__bridge const void *)[NSString stringWithFormat:@"%i",kFCGraphNetworkTaskRedeemUserGift]);
 }
 
 - (void)addGift:(FCGift *)newGift {
@@ -173,6 +182,17 @@ typedef enum {
     }
 }
 
+- (void)redeemUserGift:(NSDictionary*)info {
+    //NSLog(@"%@",info);
+    NSDictionary * redemptionInfo = [info objectForKey:@"redemptionInfo"];
+    NSString * barcodeUrlString = [redemptionInfo objectForKey:@"barcode"];
+    NSString * giftID = [info objectForKey:@"id"];
+    if (redemptionInfo && barcodeUrlString && giftID) {
+        [[mGifts objectForKey:giftID] setBarcodeUrlString:barcodeUrlString];
+    }
+    NSLog(@"%@",[[mGifts objectForKey:giftID] barcodeUrlString]);
+}
+
 - (FCGift *) getGiftWithID:(int)ID {
     return [mGifts objectForKey:[NSString stringWithFormat:@"%i", ID]];
 }
@@ -195,6 +215,9 @@ typedef enum {
                 break;
             case kFCGraphNetworkTaskDownloadUserGifts:
                 [self downloadedUserGiftList:info];
+                break;
+            case kFCGraphNetworkTaskRedeemUserGift:
+                [self redeemUserGift:info];
                 break;
             default:
                 break;
