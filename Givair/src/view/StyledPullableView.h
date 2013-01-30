@@ -1,5 +1,6 @@
 
 #import "PullableView.h"
+#import <QuartzCore/QuartzCore.h>
 
 /**
  Subclass of PullableView that uses a background image

@@ -44,9 +44,9 @@
         if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
             xOffset = 224;
         }
-        pullUpView = [[StyledPullableView alloc] initWithFrame:CGRectMake(xOffset, 0, 320, 460)];
-        pullUpView.openedCenter = CGPointMake(160 + xOffset,self.view.frame.size.height + 100);
-        pullUpView.closedCenter = CGPointMake(160 + xOffset, self.view.frame.size.height + 200);
+        pullUpView = [[StyledPullableView alloc] initWithFrame:CGRectMake(xOffset, 0, 320, 140)];
+        pullUpView.openedCenter = CGPointMake(160 + xOffset,self.view.frame.size.height-70);
+        pullUpView.closedCenter = CGPointMake(160 + xOffset, self.view.frame.size.height);
         pullUpView.center = pullUpView.closedCenter;
         pullUpView.handleView.frame = CGRectMake(0, 0, 320, 40);
         pullUpView.delegate = self;
@@ -54,12 +54,12 @@
         [self.view addSubview:pullUpView];
         //[pullUpView release];
         
-        pullUpLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 4, 320, 20)];
+        pullUpLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 10, 320, 40)];
         pullUpLabel.textAlignment = UITextAlignmentCenter;
         pullUpLabel.backgroundColor = [UIColor clearColor];
-        pullUpLabel.textColor = [UIColor lightGrayColor];
-        pullUpLabel.text = @"Pull up to redeem";
-        
+        pullUpLabel.textColor = [UIColor whiteColor];
+        pullUpLabel.text = @"Swipe to redeem";
+        pullUpLabel.font = [UIFont fontWithName:@"TrebuchetMS-Bold" size:20];
         [pullUpView addSubview:pullUpLabel];
         //[pullUpLabel release];
         /*
@@ -96,7 +96,7 @@
 
 - (void)showBarcode {
     FCImage * barcode = [[FCImage alloc] initWithURL:[NSURL URLWithString:mGift.barcodeUrlString]];
-    FCImageView * barcodeView = [[FCImageView alloc] initWithFCImage:barcode inFrame:CGRectMake(40, 40, 240, 60)];
+    FCImageView * barcodeView = [[FCImageView alloc] initWithFCImage:barcode inFrame:CGRectMake(40, 70, 240, 60)];
     
     [pullUpView addSubview:barcodeView];
     //[self.view addSubview:barcodeView];
@@ -110,9 +110,9 @@
 - (void)pullableView:(PullableView *)pView didChangeState:(BOOL)opened {
     if (opened) {
         //[self showBarcode];
-        pullUpLabel.text = @"Redeemed!";
+        pullUpLabel.text = @"Swipe to Cancel";
     } else {
-        pullUpLabel.text = @"Pull up to redeem";
+        pullUpLabel.text = @"Swipe to Redeem";
     }
 }
 
