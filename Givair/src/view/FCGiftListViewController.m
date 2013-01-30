@@ -30,9 +30,21 @@
         [self.tableView setRowHeight:86.0f];
         mCatalog = AppDelegate.catalog;
         mGraph = AppDelegate.graph;
+        [mGraph registerForDelegateCallback:self];
         [mGraph downloadGiftsForUserWithKey:[[NSUserDefaults standardUserDefaults] objectForKey:@"apikey"]];
     }
     return self;
+}
+
+- (void)viewDidLoad {
+    mRefreshControl = [[UIRefreshControl alloc] init];
+    [mRefreshControl addTarget:self action:@selector(refreshGifts) forControlEvents:UIControlEventValueChanged];
+    [self.tableView addSubview:mRefreshControl];
+
+}
+
+- (void)refreshGifts {
+    [mGraph downloadGiftsForUserWithKey:[[NSUserDefaults standardUserDefaults] objectForKey:@"apikey"]];
 }
 
 - (void)setCatalog:(FCCatalog *)catalog {
@@ -93,12 +105,16 @@
 #pragma mark - FCCatalogDelegate
 
 - (void)catalogFinishedUpdating {
+
     [self.tableView reloadData];
 }
 
 #pragma mark - FCGraphDelegate
 
 - (void)graphFinishedUpdating {
+    if (mRefreshControl) {
+        [mRefreshControl endRefreshing];
+    }
     [self.tableView reloadData];
 }
 
