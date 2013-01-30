@@ -38,6 +38,45 @@
         [self.view addSubview:navView];
         [navView setTitle:gift.product.name];
         
+        
+        //Pullable view
+        CGFloat xOffset = 0;
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+            xOffset = 224;
+        }
+        pullUpView = [[StyledPullableView alloc] initWithFrame:CGRectMake(xOffset, 0, 320, 460)];
+        pullUpView.openedCenter = CGPointMake(160 + xOffset,self.view.frame.size.height + 100);
+        pullUpView.closedCenter = CGPointMake(160 + xOffset, self.view.frame.size.height + 200);
+        pullUpView.center = pullUpView.closedCenter;
+        pullUpView.handleView.frame = CGRectMake(0, 0, 320, 40);
+        pullUpView.delegate = self;
+        
+        [self.view addSubview:pullUpView];
+        //[pullUpView release];
+        
+        pullUpLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 4, 320, 20)];
+        pullUpLabel.textAlignment = UITextAlignmentCenter;
+        pullUpLabel.backgroundColor = [UIColor clearColor];
+        pullUpLabel.textColor = [UIColor lightGrayColor];
+        pullUpLabel.text = @"Pull up to redeem";
+        
+        [pullUpView addSubview:pullUpLabel];
+        //[pullUpLabel release];
+        /*
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 80, 320, 64)];
+        label.textAlignment = UITextAlignmentCenter;
+        label.backgroundColor = [UIColor clearColor];
+        label.textColor = [UIColor whiteColor];
+        label.shadowColor = [UIColor blackColor];
+        label.shadowOffset = CGSizeMake(1, 1);
+        label.text = @"I only go half-way up!";
+        
+        [pullUpView addSubview:label];
+         */
+        //[label release];
+        
+        
+        
         if (gift.barcodeUrlString != nil) {
             [self showBarcode];
 
@@ -57,9 +96,24 @@
 
 - (void)showBarcode {
     FCImage * barcode = [[FCImage alloc] initWithURL:[NSURL URLWithString:mGift.barcodeUrlString]];
-    FCImageView * barcodeView = [[FCImageView alloc] initWithFCImage:barcode inFrame:CGRectMake(40, 360, 240, 60)];
+    FCImageView * barcodeView = [[FCImageView alloc] initWithFCImage:barcode inFrame:CGRectMake(40, 40, 240, 60)];
     
-    [self.view addSubview:barcodeView];
+    [pullUpView addSubview:barcodeView];
+    //[self.view addSubview:barcodeView];
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    return UIInterfaceOrientationIsPortrait(interfaceOrientation);
+}
+
+- (void)pullableView:(PullableView *)pView didChangeState:(BOOL)opened {
+    if (opened) {
+        //[self showBarcode];
+        pullUpLabel.text = @"Redeemed!";
+    } else {
+        pullUpLabel.text = @"Pull up to redeem";
+    }
 }
 
 

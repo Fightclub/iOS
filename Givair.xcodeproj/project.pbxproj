@@ -61,6 +61,10 @@
 		0ADF45A41664C0C900E0C0FA /* givairlarge@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0ADF45A21664C0C900E0C0FA /* givairlarge@2x.png */; };
 		0AE9B4EC166206A4009D6B5B /* MYRIADAS.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 0AE9B4EB166206A4009D6B5B /* MYRIADAS.TTF */; };
 		0AE9B4EE166208DC009D6B5B /* MYRIADAB.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 0AE9B4ED166208DC009D6B5B /* MYRIADAB.TTF */; };
+		4084823F16B8C92D00E31C3C /* PullableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4084823C16B8C92D00E31C3C /* PullableView.m */; };
+		4084824016B8C92D00E31C3C /* StyledPullableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4084823E16B8C92D00E31C3C /* StyledPullableView.m */; };
+		4084824316B8D2FB00E31C3C /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 4084824116B8D2FB00E31C3C /* background.png */; };
+		4084824416B8D2FB00E31C3C /* background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4084824216B8D2FB00E31C3C /* background@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -146,6 +150,12 @@
 		0ADF45A21664C0C900E0C0FA /* givairlarge@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "givairlarge@2x.png"; path = "img/givairlarge@2x.png"; sourceTree = "<group>"; };
 		0AE9B4EB166206A4009D6B5B /* MYRIADAS.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; name = MYRIADAS.TTF; path = img/MYRIADAS.TTF; sourceTree = "<group>"; };
 		0AE9B4ED166208DC009D6B5B /* MYRIADAB.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; name = MYRIADAB.TTF; path = img/MYRIADAB.TTF; sourceTree = "<group>"; };
+		4084823B16B8C92D00E31C3C /* PullableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PullableView.h; sourceTree = "<group>"; };
+		4084823C16B8C92D00E31C3C /* PullableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PullableView.m; sourceTree = "<group>"; };
+		4084823D16B8C92D00E31C3C /* StyledPullableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StyledPullableView.h; sourceTree = "<group>"; };
+		4084823E16B8C92D00E31C3C /* StyledPullableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StyledPullableView.m; sourceTree = "<group>"; };
+		4084824116B8D2FB00E31C3C /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
+		4084824216B8D2FB00E31C3C /* background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -275,6 +285,8 @@
 		0A85E918165CA00E00983D56 /* img */ = {
 			isa = PBXGroup;
 			children = (
+				4084824116B8D2FB00E31C3C /* background.png */,
+				4084824216B8D2FB00E31C3C /* background@2x.png */,
 				0ADF45A11664C0C900E0C0FA /* givairlarge.png */,
 				0ADF45A21664C0C900E0C0FA /* givairlarge@2x.png */,
 				0AC820F916674B410011F5AB /* Forms */,
@@ -363,6 +375,10 @@
 		0AAD5835165EF074009E250F /* UIElements */ = {
 			isa = PBXGroup;
 			children = (
+				4084823B16B8C92D00E31C3C /* PullableView.h */,
+				4084823C16B8C92D00E31C3C /* PullableView.m */,
+				4084823D16B8C92D00E31C3C /* StyledPullableView.h */,
+				4084823E16B8C92D00E31C3C /* StyledPullableView.m */,
 				0A30B14216615DB700CE472C /* Carousel */,
 				0AAA544F16633F1100180E7F /* FCIconCell.h */,
 				0AAA545016633F1100180E7F /* FCIconCell.m */,
@@ -473,6 +489,8 @@
 				0A24C4C016675B46001AE0F1 /* bluebutton@2x.png in Resources */,
 				0A24C4C116675B46001AE0F1 /* graybutton.png in Resources */,
 				0A24C4C216675B46001AE0F1 /* graybutton@2x.png in Resources */,
+				4084824316B8D2FB00E31C3C /* background.png in Resources */,
+				4084824416B8D2FB00E31C3C /* background@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -508,6 +526,8 @@
 				0ADF459C1664BA4200E0C0FA /* FCSplashViewController.m in Sources */,
 				0A362A2E166ED57800552368 /* FCRedemptionViewController.m in Sources */,
 				0A362A33166ED90000552368 /* FCImageNavView.m in Sources */,
+				4084823F16B8C92D00E31C3C /* PullableView.m in Sources */,
+				4084824016B8C92D00E31C3C /* StyledPullableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -547,7 +567,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -568,7 +588,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
